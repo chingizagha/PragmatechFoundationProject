@@ -1,0 +1,168 @@
+@import "import.css";
+
+
+.main-fi {
+    width: 200px;
+    height: 100px;
+    margin: auto;
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#main-nav {
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 2;
+}
+
+#main-nav .container {
+    display: grid;
+    grid-template-columns: 300px 900px;
+    align-items: center;
+}
+
+#main-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+}
+
+#main-nav ul li {
+    margin-right: 75px;
+}
+
+#header {
+    background-image: url(img/featured.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: cover;
+    height: 50vh;
+}
+
+.head-relative {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: gray;
+}
+
+.header-text {
+    color: #fff;
+    width: 100%;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+#main-sec {
+    margin-top: 75px;
+}
+
+#main-sec .container {
+    display: grid;
+    grid-template-columns: 450px 450px auto;
+    grid-template-rows: 421px 350px;
+    margin: auto;
+    grid-gap: 2rem;
+}
+
+.main-fi-sec {
+    width: 450px;
+    height: 300px;
+}
+
+#main-sec img {
+   width: 100%;
+   height: 100%;
+}
+
+.main-fi-sec-min {
+    width: 300px;
+    height: 700px;
+}
+.box {
+    text-align: center;  
+}
+.box-main {
+    height: 421px;
+}
+
+.form input {
+    width: 100%;
+    margin-top: 10px;
+}
+.form .input {
+    padding-top: 10px;
+}
+
+.form button {
+    margin-top: 30px;
+}
+
+.form label {
+    text-align: start;
+}
+
+.form .button, h2 {
+    text-align: center;
+}
+
+
+#footer {
+    margin-top: 50px;
+    background-color: #f8f9fa; 
+}
+
+
+#footer .container {
+  display: grid;
+  grid-template-columns: 200px 500px 500px;
+  align-items: center;
+}
+
+.foot-img {
+    width: 100px;
+    height: 100px;
+}
+
+#footer img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
