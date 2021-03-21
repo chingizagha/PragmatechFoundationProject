@@ -160,6 +160,10 @@
     justify-content: space-evenly;
 }
 
+.footer-icon i {
+    color: #000;
+}
+
 .footer-contact {
     display: flex;
     flex-direction: column;
