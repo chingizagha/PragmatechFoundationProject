@@ -1,5 +1,9 @@
 @import "grid.css";
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;
@@ -161,18 +165,18 @@ header .col-6 {
 .dropdown {
     display: none;
     position: absolute;
-    padding: 15px 0;
+    padding: 15px 15px;
     background-color: blanchedalmond;
     width: 100px;
-    top: 20px;
+    top: 49px;
     left: 0;
     border-radius: 5px;
     transition: all 0.3s ease 0s;
 }
 
 .dropdown li {
-    margin-top: 5px;
-    text-align: center;
+    margin-top: 15px;
+    text-align: left;
 }
 
 .dropdown li a:hover {
@@ -180,9 +184,14 @@ header .col-6 {
     transition: all 0.3s ease 0s;
 }
 .header-ul-2 li:nth-child(4):hover .dropdown {
-    display: inline-block;
+    display: block;
 }
 
 .row-2 {
     background-color: wheat;
+}
+
+.box-1 {
+    display: block;
+    height: 50px;
 }
