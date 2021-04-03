@@ -23,6 +23,21 @@ ul {
 
 h2 {
     font-weight: 300;
-    font-size: 48px;
     margin: 0;
+}
+
+.font-bold {
+    font-weight: 900;
+}
+
+.span-orange {
+  font-size: 21px;
+  font-weight: 300;
+  color: #ff5e15;
+}
+
+.span-black {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
 }

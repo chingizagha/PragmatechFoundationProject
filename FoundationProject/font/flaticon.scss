@@ -1,0 +1,65 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?c44ac756df9ae984f5c672bbcc653781") format("truetype"),
+url("./flaticon.woff?c44ac756df9ae984f5c672bbcc653781") format("woff"),
+url("./flaticon.woff2?c44ac756df9ae984f5c672bbcc653781") format("woff2"),
+url("./flaticon.eot?c44ac756df9ae984f5c672bbcc653781#iefix") format("embedded-opentype"),
+url("./flaticon.svg?c44ac756df9ae984f5c672bbcc653781#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "call": "\f101",
+    "compass": "\f102",
+    "crane": "\f103",
+    "engineer": "\f104",
+    "invitation": "\f105",
+    "left-arrow": "\f106",
+    "oil-platform": "\f107",
+    "placeholder": "\f108",
+    "right-arrow": "\f109",
+    "strategy": "\f10a",
+);
+
+.flaticon-call:before {
+    content: map-get($flaticon-map, "call");
+}
+.flaticon-compass:before {
+    content: map-get($flaticon-map, "compass");
+}
+.flaticon-crane:before {
+    content: map-get($flaticon-map, "crane");
+}
+.flaticon-engineer:before {
+    content: map-get($flaticon-map, "engineer");
+}
+.flaticon-invitation:before {
+    content: map-get($flaticon-map, "invitation");
+}
+.flaticon-left-arrow:before {
+    content: map-get($flaticon-map, "left-arrow");
+}
+.flaticon-oil-platform:before {
+    content: map-get($flaticon-map, "oil-platform");
+}
+.flaticon-placeholder:before {
+    content: map-get($flaticon-map, "placeholder");
+}
+.flaticon-right-arrow:before {
+    content: map-get($flaticon-map, "right-arrow");
+}
+.flaticon-strategy:before {
+    content: map-get($flaticon-map, "strategy");
+}
