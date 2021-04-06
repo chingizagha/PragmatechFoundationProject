@@ -7,6 +7,11 @@
     padding: 0;
 }
 
+*::selection {
+    background-color: #000;
+    color: #fff;
+}
+
 body {
     line-height: 1.7;
     font-family: 'Oswald', sans-serif;
@@ -32,6 +37,7 @@ body {
 
 .img-logo {
     width: 162px;
+    object-fit: cover;
 }
 
 .row-head-contact {
@@ -64,22 +70,16 @@ body {
 
 /* Navbar */
 
-
-
-.container-intro .row {
+menu{
     position: sticky;
-    top: 0px;
-    z-index: 2220;
+    top: 0%;
+    z-index: 2;
 }
-
 
 .row-nav {
     background-color: #ff5e15;
     align-items: center;
     padding: 8px 0px;
-    position: sticky;
-    top: 0px;
-    z-index: 2220;
 }
 
 .nav-ul {
@@ -106,14 +106,23 @@ body {
 
 /* Bg-img */
 
-#bg-img {
-    background-image: url(../img/hero_1.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    height: 88vh;
+.bg-img-fig {
+    height: 600px;
+    width: 1349px;
     position: relative;
+}
+
+.bg-img {
+    object-fit: cover;
+}
+
+.bg-img-h2 {
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    transform: translate(-50%);
+    color: #fff !important;
+    font-size: 48px;
 }
 
 .overlay {
@@ -126,53 +135,35 @@ body {
     background-color: #222;
 }
 
-#bg-img .img-text {
-    display: block;
+.arrow span {
+    background-color: #fff;
     text-align: center;
-    color: #fff;
-    position: absolute;
-    top: 7%;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    font-weight: 300;
-    font-size: 28px;
-    padding-top: 200px;
-}
-
-.h2-img-text {
-    font-weight: 300;
-    font-size:  48px;
+    color: #000;
+    font-size: 27px;
+    padding: 20px 23px;
+    cursor: pointer;
 }
 
 .arrow {
     position: absolute;
-    top: 50%;
-    
-}
-
-.arrow-l {
-    left: 0;
+    top: 40%;
 }
 
 .arrow-r {
-    right: 0;
+    right: 0%;
 }
 
-.arrow span {
-    width: 70px;
-    height: 70px;
-    text-align: center;
-    background-color: #fff;
-    font-size: 28px;
-    padding: 20px 23px;
-    cursor: pointer;
+.arrow-l {
+    left: 0%;
 }
 
 .arrow span:hover {
     background-color: #ff5e15;
     color: #fff;
 }
+
+
+/* Main section */
 
 .container-do {
     max-width: 1140px;
@@ -204,6 +195,10 @@ body {
 
 .service-1 .service-1-icon {
     font-size: 64px;
+}
+
+.service-1-text {
+    line-height: 30px;
 }
 
 .service-1 h3 {
@@ -239,7 +234,7 @@ body {
     margin-top: 90px;
     background-color: #09162a;
     padding-top: 120px;
-    padding-bottom: 90px;
+    padding-bottom: 80px;
 }
 
 .container-us .row {
@@ -256,7 +251,6 @@ body {
 .container-us .col-6 {
     padding: 0 15px;
 }
-
 
 .container-us .column-right {
     color: #fff;
