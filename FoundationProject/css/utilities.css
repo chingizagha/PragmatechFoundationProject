@@ -13,6 +13,10 @@ ul {
     display: flex;
 }
 
+.d-grid {
+    display: grid;
+}
+
 .ff-oswald {
     font-family: 'Oswald', sans-serif;
 }
@@ -63,4 +67,8 @@ h2 {
 
 .pb-2 {
     padding-bottom: 30px;
+}
+
+.w-1140 {
+    width: 1140px;
 }
