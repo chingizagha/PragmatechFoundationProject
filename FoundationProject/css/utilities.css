@@ -9,6 +9,11 @@ ul {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
 .d-flex {
     display: flex;
 }
@@ -46,6 +51,11 @@ h2 {
     color: #000;
 }
 
+.a-orange {
+    font-size: 16px;
+    color: #ff5e15;;
+}
+
 .triangle-orange {
     width: 0;
     height: 0;
@@ -71,4 +81,23 @@ h2 {
 
 .w-1140 {
     width: 1140px;
+}
+
+.margin-0-auto {
+    margin: 0 auto;
+}
+
+.jc-center {
+    justify-content: center;
+}
+
+.txt-algn-cnt {
+    text-align: center;
+}
+
+.un-line-orange {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    border-bottom: 2px solid #ff5e15;
 }
