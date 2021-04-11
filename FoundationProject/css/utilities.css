@@ -101,3 +101,15 @@ h2 {
     color: #fff;
     border-bottom: 2px solid #ff5e15;
 }
+
+.height-65vh { 
+    height: 65vh !important;
+}
+
+.color-fff {
+    color: #fff !important;
+}
+
+.p-rel {
+    position: relative;
+}
