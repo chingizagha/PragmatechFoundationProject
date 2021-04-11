@@ -70,7 +70,8 @@ body {
 menu {
     position: sticky;
     top: 0%;
-    z-index: 2;
+    z-index: 5;
+    box-shadow: 4px 0 20px -5px rgb(0 0 0 / 20%);
 }
 
 .row-nav {
@@ -546,6 +547,7 @@ h2 {
 .block-4 {
     background-color: #09162a;
     padding: 7rem 0;
+    margin-bottom: 14rem;
 }
 
 .block-4 .fig-pro {
@@ -612,8 +614,9 @@ h2 {
     visibility: visible; 
 }
 
-.row-bottom {
+.container-project .row-bottom {
     justify-content: space-around;
+    margin-bottom: -175px;
 }
 
 .direction {
@@ -633,10 +636,216 @@ h2 {
 
 .prev {
     left: 1.4%;
-    z-index: 100;
+    z-index: 4;
 }
 
 .next {
     right: 1.4%;
-    z-index: 100;
+    z-index: 4;
+}
+
+.pro-point {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.point {
+    display: block;
+    cursor: pointer;
+    width: 18px;
+    height: 4px;
+    background-color: #ccc;
+    margin: 2px 5px;
+}
+
+.point-ora {
+    background-color: #ff5e15 !important;
+}
+
+
+/* About Page */
+
+.block-about {
+    padding-top: 7.5rem;
+}
+
+.about-section-title {
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-block;
+    color: #fff;
+}
+
+.about-section-title h2 {
+    font-size: 48px;
+}
+
+.about-section-title p {
+    font-size: 18px;
+}
+
+.about-section-title p a {
+    text-decoration: underline;
+}
+
+.worker {
+    position: relative;
+}
+
+.worker figure {
+    width: 255px;
+    height: 319px;
+}
+
+.about-fig {
+    overflow: hidden;
+}
+
+.about-fig img {
+    transition: all 0.5s;
+}
+
+.about-fig:hover img {
+    transform: scale(1.05);
+}
+
+.social-icons {
+    position: absolute;
+    top: 40%;
+    left: 5%
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.social-icons i {
+    color:#ff5e15; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.social-icons a:hover {
+    background-color: #000;
+    transition: .3s all ease;
+}
+
+.social-icons a:hover i {
+    color: #fff;
+}
+
+.worker-info h3 {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Contact Page */
+
+.block-contact {
+    padding: 7.5rem 0;
+}
+
+.container-contact .col-6 input{
+    width: 100%;
+    outline: none;
+    color:#495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.3rem;
+    font-size: 18px;
+}
+.container-contact .col-12 textarea {
+    width: 100%;
+    outline: none;
+    color:#495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.3rem;
+    font-size: 18px;
+}
+
+.container-contact .col-6 input:focus {
+    border: 1px solid #ff5e15; 
+}
+
+.container-contact .col-12 textarea:focus {
+    border: 1px solid #ff5e15; 
+}
+
+.container-contact input {
+    padding: 1rem 2rem;
+}
+
+.container-contact .col-6 {
+    margin-bottom: 1rem;
+}
+
+.container-contact label {
+    margin-bottom: 0.5rem;
+    font-family: 'Mulish', sans-serif;
+    color: #848284;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.btn-orange-contact {
+    display: inline-block;
+    padding: 0.5rem 3rem !important;
+    background-color: #ff5e15;
+    color: #fff;
+    border-color: #ff5e15;
+    border: 1px solid transparent;
+    font-family: 'Oswald', sans-serif;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.btn-orange-contact:hover {
+    background-color: #EE4A00;
+}
+
+
+/* Block Bottom */
+
+.block-bottom {
+    background-image: url(../img/hero_1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 4rem 0;
+    position: relative;
+}
+
+.block-bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #183661;
+    opacity: 0.9;
+    z-index: 0;
+}
+
+.block-bottom-title {
+    z-index: 1;
+}
+
+.container-bottom p {
+    font-size: 18px;
+    color: #7697c6;
+    font-family: 'Mulish', sans-serif;
 }

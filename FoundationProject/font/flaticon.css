@@ -1,10 +1,10 @@
 @font-face {
     font-family: "flaticon";
-    src: url("./flaticon.ttf?c44ac756df9ae984f5c672bbcc653781") format("truetype"),
-url("./flaticon.woff?c44ac756df9ae984f5c672bbcc653781") format("woff"),
-url("./flaticon.woff2?c44ac756df9ae984f5c672bbcc653781") format("woff2"),
-url("./flaticon.eot?c44ac756df9ae984f5c672bbcc653781#iefix") format("embedded-opentype"),
-url("./flaticon.svg?c44ac756df9ae984f5c672bbcc653781#flaticon") format("svg");
+    src: url("./flaticon.ttf?d4334516936865c96b0e144d9f12a7c3") format("truetype"),
+url("./flaticon.woff?d4334516936865c96b0e144d9f12a7c3") format("woff"),
+url("./flaticon.woff2?d4334516936865c96b0e144d9f12a7c3") format("woff2"),
+url("./flaticon.eot?d4334516936865c96b0e144d9f12a7c3#iefix") format("embedded-opentype"),
+url("./flaticon.svg?d4334516936865c96b0e144d9f12a7c3#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -30,21 +30,30 @@ i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
 .flaticon-engineer:before {
     content: "\f104";
 }
-.flaticon-invitation:before {
+.flaticon-facebook:before {
     content: "\f105";
 }
-.flaticon-left-arrow:before {
+.flaticon-invitation:before {
     content: "\f106";
 }
-.flaticon-oil-platform:before {
+.flaticon-left-arrow:before {
     content: "\f107";
 }
-.flaticon-placeholder:before {
+.flaticon-linkedin:before {
     content: "\f108";
 }
-.flaticon-right-arrow:before {
+.flaticon-oil-platform:before {
     content: "\f109";
 }
-.flaticon-strategy:before {
+.flaticon-placeholder:before {
     content: "\f10a";
+}
+.flaticon-right-arrow:before {
+    content: "\f10b";
+}
+.flaticon-strategy:before {
+    content: "\f10c";
+}
+.flaticon-twitter:before {
+    content: "\f10d";
 }

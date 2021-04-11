@@ -2,11 +2,11 @@ $flaticon-font: "flaticon";
 
 @font-face {
     font-family: $flaticon-font;
-    src: url("./flaticon.ttf?c44ac756df9ae984f5c672bbcc653781") format("truetype"),
-url("./flaticon.woff?c44ac756df9ae984f5c672bbcc653781") format("woff"),
-url("./flaticon.woff2?c44ac756df9ae984f5c672bbcc653781") format("woff2"),
-url("./flaticon.eot?c44ac756df9ae984f5c672bbcc653781#iefix") format("embedded-opentype"),
-url("./flaticon.svg?c44ac756df9ae984f5c672bbcc653781#flaticon") format("svg");
+    src: url("./flaticon.ttf?d4334516936865c96b0e144d9f12a7c3") format("truetype"),
+url("./flaticon.woff?d4334516936865c96b0e144d9f12a7c3") format("woff"),
+url("./flaticon.woff2?d4334516936865c96b0e144d9f12a7c3") format("woff2"),
+url("./flaticon.eot?d4334516936865c96b0e144d9f12a7c3#iefix") format("embedded-opentype"),
+url("./flaticon.svg?d4334516936865c96b0e144d9f12a7c3#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
@@ -25,12 +25,15 @@ $flaticon-map: (
     "compass": "\f102",
     "crane": "\f103",
     "engineer": "\f104",
-    "invitation": "\f105",
-    "left-arrow": "\f106",
-    "oil-platform": "\f107",
-    "placeholder": "\f108",
-    "right-arrow": "\f109",
-    "strategy": "\f10a",
+    "facebook": "\f105",
+    "invitation": "\f106",
+    "left-arrow": "\f107",
+    "linkedin": "\f108",
+    "oil-platform": "\f109",
+    "placeholder": "\f10a",
+    "right-arrow": "\f10b",
+    "strategy": "\f10c",
+    "twitter": "\f10d",
 );
 
 .flaticon-call:before {
@@ -45,11 +48,17 @@ $flaticon-map: (
 .flaticon-engineer:before {
     content: map-get($flaticon-map, "engineer");
 }
+.flaticon-facebook:before {
+    content: map-get($flaticon-map, "facebook");
+}
 .flaticon-invitation:before {
     content: map-get($flaticon-map, "invitation");
 }
 .flaticon-left-arrow:before {
     content: map-get($flaticon-map, "left-arrow");
+}
+.flaticon-linkedin:before {
+    content: map-get($flaticon-map, "linkedin");
 }
 .flaticon-oil-platform:before {
     content: map-get($flaticon-map, "oil-platform");
@@ -62,4 +71,7 @@ $flaticon-map: (
 }
 .flaticon-strategy:before {
     content: map-get($flaticon-map, "strategy");
+}
+.flaticon-twitter:before {
+    content: map-get($flaticon-map, "twitter");
 }
