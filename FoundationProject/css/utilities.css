@@ -22,6 +22,10 @@ a {
     display: grid;
 }
 
+.d-inblock {
+    display: inline-block;
+}
+
 .ff-oswald {
     font-family: 'Oswald', sans-serif;
 }
@@ -53,7 +57,11 @@ h2 {
 
 .a-orange {
     font-size: 16px;
-    color: #ff5e15;;
+    color: #ff5e15;
+}
+
+.color-ora {
+    color: #ff5e15;
 }
 
 .triangle-orange {
@@ -143,5 +151,17 @@ h2 {
 
 .margin-bottom-3 {
     margin-bottom: 30px !important;
+}
+
+.margin-top-3rem {
+    margin-top: 3rem;
+}
+
+.p-1rem {
+    padding: 1rem;
+}
+
+.fontSize-18 {
+    font-size: 18px;
 }
 
