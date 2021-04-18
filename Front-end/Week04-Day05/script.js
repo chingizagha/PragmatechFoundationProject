@@ -29,8 +29,8 @@ for (let i= 0; i< 49; i++) {
 
 
     block.addEventListener('click', (event) => {
-        console.log(event.target);
-        event.target.style.backgroundColor =  bgColor
+            console.log(event.target);
+            event.target.style.backgroundColor =  bgColor
 }
 )
 

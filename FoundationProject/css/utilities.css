@@ -157,11 +157,28 @@ h2 {
     margin-top: 3rem;
 }
 
+.margin-bottom-5rem {
+  margin-bottom: 5rem;
+}
+
 .p-1rem {
     padding: 1rem;
+}
+
+.pt-3rem {
+    padding-top: 3rem;
+}
+
+.pt-5rem {
+    padding-top: 5rem;
 }
 
 .fontSize-18 {
     font-size: 18px;
 }
 
+.p-r-l-15px {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+    
