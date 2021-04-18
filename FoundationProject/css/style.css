@@ -17,6 +17,15 @@ body {
     font-family: "Oswald", sans-serif;
 }
 
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+}
+
 /* Head Contact */
 
 .container-head {
@@ -112,7 +121,7 @@ menu {
 
 .bg-img-fig {
     height: 90vh;
-    width: 1349px;
+    width: 100%;
     position: relative;
 }
 
@@ -452,7 +461,7 @@ h2 {
 }
 
 .container-sub .row {
-    padding: 24px 0;
+    padding: 3rem 0;
     align-items: center;
 }
 
@@ -915,3 +924,5 @@ h2 {
 .block-projects .col-3 {
     margin-bottom: 1rem;
 }
+
+let array = [ 2,]

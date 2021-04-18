@@ -87,8 +87,8 @@ h2 {
     padding-bottom: 30px;
 }
 
-.w-1140 {
-    width: 1140px;
+.max-w-1140 {
+    max-width: 1140px;
 }
 
 .margin-0-auto {
