@@ -24,7 +24,7 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
-}
+
 
 /* Head Contact */
 
@@ -56,7 +56,6 @@ body {
 .top-text {
     font-size: 19px;
     color: #000;
-    font-weight: 500;
 }
 
 .bottom-text {
@@ -210,27 +209,27 @@ h2 {
     margin-bottom: 24px;
 }
 
-.service-1 .service-1-icon {
+.do-box-1 .do-box-1-icon {
     font-size: 64px;
 }
 
-.service-1-text {
+.do-box-1-text {
     line-height: 30px;
 }
 
-.service-1 h3 {
+.do-box-1 h3 {
     font-size: 24px;
     font-weight: 400;
     color: #000;
 }
 
-.service-1 p {
+.do-box-1 p {
     color: #808080;
     font-size: 15px;
     font-weight: 300;
 }
 
-.service-1 {
+.do-box-1 {
     flex-direction: column;
     text-align: left;
     border: 1px solid #efefef;
@@ -238,10 +237,10 @@ h2 {
     position: relative;
 }
 
-.service-1 .number {
+.do-box-1 .number {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 8px;
+    top: 8px;
     font-weight: 400;
     color: #dcdcdc;
 }
@@ -336,12 +335,12 @@ h2 {
     padding-bottom: 110px;
 }
 
-.quote-form .col-6 {
+.index-form .col-6 {
     margin-bottom: 16px;
     padding: 0 15px;
 }
 
-.quote-form textarea {
+.index-form textarea {
     height: auto;
 }
 
@@ -469,10 +468,10 @@ h2 {
     width: 100%;
     background: none;
     color: #fff;
-    border: 2px solid #fff;
+    border: 3px solid #fff;
     outline: none;
     font-size: 20px;
-    padding: 8px 15px;
+    padding: 8px 16px;
 }
 
 .form-sub-submit {
@@ -480,9 +479,9 @@ h2 {
     border-color: #000;
     color: #fff;
     font-size: 14px;
-    letter-spacing: 0.2rem;
+    letter-spacing: 4px;
     font-family: "Oswald", sans-serif;
-    padding: 12px 24px;
+    padding: 10px 20px;
     outline: none;
     cursor: pointer;
 }
@@ -497,7 +496,7 @@ h2 {
 }
 
 .sub-left p {
-    font-size: 17.6px;
+    font-size: 18px;
     font-family: "Mulish", sans-serif;
 }
 
@@ -656,7 +655,7 @@ h2 {
 
 .pro-point {
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -748,7 +747,7 @@ h2 {
 
 .social-icons a:hover {
     background-color: #000;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
 }
 
 .social-icons a:hover i {
@@ -960,7 +959,7 @@ h2 {
 }
 
 
-.single-blog-comment .first-h3 {
+.first-h3 {
     color: #808080;
     font-size: 28px;
     font-weight: 400;
@@ -968,20 +967,20 @@ h2 {
 .comment {
     margin-bottom: 1rem;
 }
-.comment-body h3 {
+.comment-main h3 {
     font-size: 20px;
     color: #808080;
    font-weight: 400;
    margin-bottom: 0.5rem;
 }
 
-.comment-body .comment-time {
+.comment-main .comment-time {
     font-size: 13px;
     color: #ccc;
     letter-spacing: .1em;
 }
 
-.comment-body p {
+.comment-main p {
     font-size: 18px;
     font-family: 'Mulish', sans-serif;
     color: #808080;
@@ -1003,6 +1002,30 @@ h2 {
     width: 100%;
 }
 
+.comment-form {
+    padding: 40px;
+    background-color: #F8F9FA;
+}
+
+.form-comment .form-comment-input {
+    width: 100%;
+    outline: none;
+    color:#495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.3rem;
+    font-size: 18px;
+}
+
+.form-comment .form-comment-input {
+    padding: 8px 12px;
+}
+
+.form-comment label {
+    font-size: 18px;
+    color: #808080;
+    font-weight: 400;
+    font-family: 'Mulish', sans-serif;
+}
 
 .sidebox {
     margin-bottom: 30px;
@@ -1012,7 +1035,7 @@ h2 {
     background: #fff;
 }
 
-.sidebox .form-group {
+.sidebox .form-search {
     background: #f7f7f7;
     padding: 10px;
 }
@@ -1027,6 +1050,11 @@ h2 {
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
+    outline: none;
+}
+
+.sidebox .form-input:focus {
+    border: 1px solid #ff5e15; 
 }
 
 
@@ -1038,7 +1066,8 @@ h2 {
 .sidebox-categories h3 {
     font-size: 18px;
     margin-bottom: 15px;
-    font-weight: 400;
+    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
 }
 
 .sidebox-categories a {
