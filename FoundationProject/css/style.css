@@ -393,6 +393,7 @@ h2 {
     height: 233px;
     margin-bottom: 30px;
     display: block;
+    overflow: hidden;
 }
 
 .blog-a-img img {
