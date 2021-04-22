@@ -25,7 +25,6 @@ body {
     margin-left: auto;
 }
 
-
 /* Head Contact */
 
 .container-head {
@@ -118,6 +117,13 @@ menu {
 
 /* Bg-img */
 
+.bg-img-section {
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 .bg-img-fig {
     height: 90vh;
     width: 100%;
@@ -126,6 +132,7 @@ menu {
 
 .bg-img {
     object-fit: cover;
+    width: 100%;
 }
 
 .bg-img-h2 {
@@ -135,11 +142,7 @@ menu {
     transform: translate(-50%);
     color: #fff !important;
     font-size: 48px;
-
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
+    user-select: none; 
 }
 
 .overlay {
@@ -159,6 +162,20 @@ menu {
     font-size: 27px;
     padding: 20px 23px;
     cursor: pointer;
+}
+
+.slider-block {
+    height: 90vh;
+    width: 200%;
+    overflow: hidden;
+}
+
+.slider-line {
+    transition: all 0.3s ease 0s;
+    display: flex;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
 }
 
 .arrow {
@@ -376,7 +393,6 @@ h2 {
     height: 233px;
     margin-bottom: 30px;
     display: block;
-    overflow: hidden;
 }
 
 .blog-a-img img {
@@ -570,7 +586,7 @@ h2 {
     transition: all 0.5s;
 }
 
-.project{
+.project {
     position: relative;
     overflow: hidden;
     margin: 0 15px;
@@ -614,13 +630,13 @@ h2 {
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    z-index: 1; 
-    transition: .3s all ease; 
+    z-index: 1;
+    transition: 0.3s all ease;
 }
 
 .project:hover::before {
     opacity: 1;
-    visibility: visible; 
+    visibility: visible;
 }
 
 .container-project .row-bottom {
@@ -640,7 +656,6 @@ h2 {
     font-size: 24px;
     padding: 2px 8px;
     cursor: pointer;
-   
 }
 
 .prev {
@@ -673,7 +688,6 @@ h2 {
 .point-ora {
     background-color: #ff5e15 !important;
 }
-
 
 /* About Page */
 
@@ -725,7 +739,7 @@ h2 {
 .social-icons {
     position: absolute;
     top: 40%;
-    left: 5%
+    left: 5%;
 }
 
 .social-icons a {
@@ -738,7 +752,7 @@ h2 {
 }
 
 .social-icons i {
-    color:#ff5e15; 
+    color: #ff5e15;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -765,10 +779,10 @@ h2 {
     padding: 7.5rem 0;
 }
 
-.container-contact .col-6 input{
+.container-contact .col-6 input {
     width: 100%;
     outline: none;
-    color:#495057;
+    color: #495057;
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
     font-size: 18px;
@@ -776,18 +790,18 @@ h2 {
 .container-contact .col-12 textarea {
     width: 100%;
     outline: none;
-    color:#495057;
+    color: #495057;
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
     font-size: 18px;
 }
 
 .container-contact .col-6 input:focus {
-    border: 1px solid #ff5e15; 
+    border: 1px solid #ff5e15;
 }
 
 .container-contact .col-12 textarea:focus {
-    border: 1px solid #ff5e15; 
+    border: 1px solid #ff5e15;
 }
 
 .container-contact input {
@@ -800,7 +814,7 @@ h2 {
 
 .container-contact label {
     margin-bottom: 0.5rem;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     color: #848284;
     font-size: 18px;
     display: inline-block;
@@ -813,19 +827,18 @@ h2 {
     color: #fff;
     border-color: #ff5e15;
     border: 1px solid transparent;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
     outline: none;
     cursor: pointer;
     font-size: 14px;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
 }
 
 .btn-orange-contact:hover {
-    background-color: #EE4A00;
+    background-color: #ee4a00;
 }
-
 
 /* Block Bottom */
 
@@ -856,7 +869,7 @@ h2 {
 .container-bottom p {
     font-size: 18px;
     color: #7697c6;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
 }
 
 /******/
@@ -880,7 +893,7 @@ h2 {
     font-size: 16px;
     font-weight: 300;
     color: #b0b0b0;
-    font-family: 'Mulish', sans-serif; 
+    font-family: "Mulish", sans-serif;
 }
 
 /********/
@@ -899,7 +912,7 @@ h2 {
 .block-testi p {
     font-size: 20px;
     font-weight: 700;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
 }
 
 /*****/
@@ -924,7 +937,6 @@ h2 {
     margin-bottom: 1rem;
 }
 
-
 /* Single Blog */
 .comment-profile-fig {
     width: 80px;
@@ -939,7 +951,7 @@ h2 {
 
 .single-blog-text .section-p {
     font-size: 20px;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     color: #808080;
 }
 
@@ -953,11 +965,9 @@ h2 {
     transition: all 0.3s ease;
 }
 
-
 .single-blog-categories a:hover {
-    color: #EE4A00;
+    color: #ee4a00;
 }
-
 
 .first-h3 {
     color: #808080;
@@ -970,19 +980,19 @@ h2 {
 .comment-main h3 {
     font-size: 20px;
     color: #808080;
-   font-weight: 400;
-   margin-bottom: 0.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
 }
 
 .comment-main .comment-time {
     font-size: 13px;
     color: #ccc;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
 }
 
 .comment-main p {
     font-size: 18px;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
     color: #808080;
     margin-bottom: 1rem;
 }
@@ -1004,13 +1014,13 @@ h2 {
 
 .comment-form {
     padding: 40px;
-    background-color: #F8F9FA;
+    background-color: #f8f9fa;
 }
 
 .form-comment .form-comment-input {
     width: 100%;
     outline: none;
-    color:#495057;
+    color: #495057;
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
     font-size: 18px;
@@ -1024,7 +1034,7 @@ h2 {
     font-size: 18px;
     color: #808080;
     font-weight: 400;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
 }
 
 .sidebox {
@@ -1054,9 +1064,8 @@ h2 {
 }
 
 .sidebox .form-input:focus {
-    border: 1px solid #ff5e15; 
+    border: 1px solid #ff5e15;
 }
-
 
 .sidebox-categories span {
     right: 0;
@@ -1067,18 +1076,18 @@ h2 {
     font-size: 18px;
     margin-bottom: 15px;
     font-weight: 600;
-    font-family: 'Oswald', sans-serif;
+    font-family: "Oswald", sans-serif;
 }
 
 .sidebox-categories a {
     color: #ff5e15;
     transition: all 0.3s ease;
     font-size: 15px;
-    font-family: 'Mulish', sans-serif;
+    font-family: "Mulish", sans-serif;
 }
 
 .sidebox-categories a:hover {
-    color: #EE4A00;
+    color: #ee4a00;
 }
 
 .sidebox-categories li {
