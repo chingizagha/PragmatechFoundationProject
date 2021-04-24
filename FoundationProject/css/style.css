@@ -601,12 +601,7 @@ h2 {
     transform: translateY(0%);
     opacity: 1;
     visibility: visible;
-}
-
-.project:hover .pro-overlay {
-    visibility: visible;
-    transform: translateY(0%);
-    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .project .pro-item {
@@ -624,20 +619,20 @@ h2 {
 .project::before {
     content: "";
     background: rgba(0, 0, 0, 0.7);
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    position: absolute;
     opacity: 0;
     visibility: hidden;
-    z-index: 1;
-    transition: 0.3s all ease;
+    z-index: 2;
 }
 
 .project:hover::before {
     opacity: 1;
     visibility: visible;
+    transition: all 0.3s ease;
 }
 
 .container-project .row-bottom {
