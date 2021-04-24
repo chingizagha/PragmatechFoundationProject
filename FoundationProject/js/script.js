@@ -20,3 +20,4 @@ document.querySelector('.arrow-l').addEventListener('click', ()=> {
     }
     sliderLine.style.left = -move + '%';
 })
+

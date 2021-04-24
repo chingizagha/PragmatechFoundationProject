@@ -939,6 +939,8 @@ h2 {
 }
 
 /* Single Blog */
+
+
 .comment-profile-fig {
     width: 80px;
     height: 50px;
@@ -1013,9 +1015,14 @@ h2 {
     width: 100%;
 }
 
-.comment-form {
-    padding: 40px;
+.comment-form-div {
+    padding: 50px;
     background-color: #f8f9fa;
+    margin-bottom: 90px;
+}
+
+.form-comment {
+    margin-bottom: 1.4rem;
 }
 
 .form-comment .form-comment-input {
@@ -1036,6 +1043,11 @@ h2 {
     color: #808080;
     font-weight: 400;
     font-family: "Mulish", sans-serif;
+}
+
+.comment-button {
+    border-radius: 5px;
+    padding: 0.5rem 1.2rem !important;
 }
 
 .sidebox {
