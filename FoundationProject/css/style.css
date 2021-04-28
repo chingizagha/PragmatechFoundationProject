@@ -166,15 +166,20 @@ menu {
 
 .slider-block {
     height: 90vh;
-    width: 200%;
+    width: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .slider-line {
+    height: 100%;
+    width: 200%;
     transition: all 0.3s ease 0s;
     display: flex;
     position: relative;
     left: 0px;
+    flex-shrink: 0;
     overflow: hidden;
 }
 
@@ -800,17 +805,19 @@ h2 {
     width: 100%;
     outline: none;
     color: #495057;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
     font-size: 18px;
 }
 
 .container-contact .col-6 input:focus {
-    border: 1px solid #ff5e15;
+    border: 1px solid #ffb695;
 }
 
 .container-contact .col-12 textarea:focus {
-    border: 1px solid #ff5e15;
+    border: 1px solid #ffb695;
 }
 
 .container-contact input {
@@ -1052,6 +1059,23 @@ h2 {
     font-weight: 400;
     font-family: "Mulish", sans-serif;
 }
+
+.form-comment input {
+    transition: all 0.3s ease 0s;
+}
+
+.form-comment input:focus {
+    border: 1px solid #ffb695;
+}
+
+.form-comment textarea {
+    transition: all 0.3s ease 0s;
+}
+
+.form-comment textarea:focus {
+    border: 1px solid #ffb695;
+}
+
 
 .comment-button {
     border-radius: 5px;

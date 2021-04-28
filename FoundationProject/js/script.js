@@ -1,5 +1,6 @@
+/* Animation */
 const section = () => {
-    if (window.scrollY == 0) {
+    if (window.scrollY >= 0) {
         let animes = document.querySelector('.about-section-title');
         animes.classList.add('_active')
 

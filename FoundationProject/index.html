@@ -641,27 +641,55 @@
    
    
 let move = 0;
+let next = document.querySelector('.arrow-r');
+let prev = document.querySelector('.arrow-l');
 let sliderLine = document.querySelector(".slider-line");
+let carousel = document.querySelector('.slider-block');
 
+let direction;
 
-document.querySelector('.arrow-r').addEventListener('click', () => {
-    sliderLine.style.transition = 'all 1.1s ease 0s';
-    move += 50;
+next.addEventListener('click', () => {
+    direction = -1;
+    sliderLine.style.transition = 'all 0.8s ease 0s';
+    /*move += 50;
     if (move > 50) {
         //sliderLine.style.transition = 'none';
         move = 0
-    }
-    sliderLine.style.left = -move + '%';
+    }*/
+    carousel.style.justifyContent = 'flex-start'
+    sliderLine.style.transform = 'translate(-50%)';
 })
 
-document.querySelector('.arrow-l').addEventListener('click', ()=> {
-    sliderLine.style.transition = 'all 1.1s ease 0s';
-    move -= 50;
+prev.addEventListener('click', ()=> {
+    if (direction == -1) {
+        sliderLine.appendChild(sliderLine.firstElementChild);
+        direction = 1;
+    }
+    sliderLine.style.transition = 'all 0.8s ease 0s';
+    /*move -= 50;
     if (move < 0) {
         move = 50
-    }
-    sliderLine.style.left = -move + '%';
+    }*/
+    carousel.style.justifyContent = 'flex-end';
+    sliderLine.style.transform = 'translate(50%)';
 })
+
+sliderLine.addEventListener('transitionend', function() {
+
+    if (direction == 1) {
+        sliderLine.prepend(sliderLine.lastElementChild);
+    } else  {
+        sliderLine.appendChild(sliderLine.firstElementChild);
+    }
+
+
+    sliderLine.style.transition = 'none';
+    sliderLine.style.transform = 'translate(0)'
+    setTimeout(function() {
+        sliderLine.style.transition = 'all 0.8s ease 0s';
+    })
+})
+
 
 </script>
 
