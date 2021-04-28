@@ -1,23 +1,29 @@
-let move = 0;
-let sliderLine = document.querySelector(".slider-line");
+const section = () => {
+    if (window.scrollY == 0) {
+        let animes = document.querySelector('.about-section-title');
+        animes.classList.add('_active')
 
-
-document.querySelector('.arrow-r').addEventListener('click', () => {
-    sliderLine.style.transition = 'all 1.1s ease 0s';
-    move += 50;
-    if (move > 50) {
-        //sliderLine.style.transition = 'none';
-        move = 0
     }
-    sliderLine.style.left = -move + '%';
-})
+}
 
-document.querySelector('.arrow-l').addEventListener('click', ()=> {
-    sliderLine.style.transition = 'all 1.1s ease 0s';
-    move -= 50;
-    if (move < 0) {
-        move = 50
-    }
-    sliderLine.style.left = -move + '%';
-})
+section();
 
+
+
+/* Current Page */
+
+// let currentLocation = window.location.href;
+// const menuItem = document.querySelectorAll('.nav-ul a');
+// const menuLength = menuItem.length
+// console.log(currentLocation);
+
+// for(let i = 0; i< menuLength; i++) {
+//     if(menuItem[i].href === currentLocation) {
+//         menuItem[i].className = 'selected';
+//     }
+//     else {
+//         menuItem[i].className = 'non-selected';
+//     }
+// } 
+
+console.log("hello world");

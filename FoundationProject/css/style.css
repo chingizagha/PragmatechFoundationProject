@@ -635,6 +635,18 @@ h2 {
     transition: all 0.3s ease;
 }
 
+.slider-block-second {
+    height: 490px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-line-second {
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+}
+
 .container-project .row-bottom {
     justify-content: space-around;
     margin-bottom: -175px;
@@ -693,10 +705,11 @@ h2 {
 
 .about-section-title {
     top: 30%;
-    left: 50%;
-    transform: translate(-50%);
+    left: 42%;
+    transform: translateY(80%);
     display: inline-block;
     color: #fff;
+    opacity: 0;
 }
 
 .about-section-title h2 {
@@ -1125,4 +1138,14 @@ h2 {
 
 .sidebox p {
     color: #808080;
+}
+
+.selected {
+    color: #000 !important;
+}
+
+._active {
+    transform: translateY(0%);
+    opacity: 1;
+    transition: all 1.2s ease 0s;
 }
