@@ -9,6 +9,11 @@ const section = () => {
 
 section();
 
+window.addEventListener('scroll', function() {
+    let header = document.querySelector(".row-nav");
+    header.style.transition = "all 0.3s ease";
+    header.classList.toggle('navbar-fixed', window.scrollY >= 132);
+})
 
 
 /* Current Page */
@@ -27,4 +32,4 @@ section();
 //     }
 // } 
 
-console.log("hello world");
+
