@@ -17,7 +17,7 @@
 
 <body>
 
-    <header class="abcc">
+    <header>
         <section id="section-head-1">
             <div class="container container-head">
                 <div class="row row-head-contact d-flex">
@@ -336,7 +336,7 @@
                                 </figure>
 
                                 <div class="pro-overlay"></div>
-                                
+
 
                                 <div class="pro-item">
                                     <a href="#">
@@ -358,7 +358,7 @@
                                 </figure>
 
                                 <div class="pro-overlay"></div>
-                                
+
 
                                 <div class="pro-item">
                                     <a href="#">
@@ -381,7 +381,7 @@
                                 </figure>
 
                                 <div class="pro-overlay"></div>
-                                
+
 
                                 <div class="pro-item">
                                     <a href="#">
@@ -404,7 +404,7 @@
                                 </figure>
 
                                 <div class="pro-overlay"></div>
-                                
+
 
                                 <div class="pro-item">
                                     <a href="#">
@@ -641,58 +641,58 @@
 </body>
 
 <script>
-// First Slider
-let move = 0;
-let next = document.querySelector('.arrow-r');
-let prev = document.querySelector('.arrow-l');
-let sliderLine = document.querySelector(".slider-line");
-let carousel = document.querySelector('.slider-block');
+    // First Slider
+    let move = 0;
+    let next = document.querySelector('.arrow-r');
+    let prev = document.querySelector('.arrow-l');
+    let sliderLine = document.querySelector(".slider-line");
+    let carousel = document.querySelector('.slider-block');
 
-let direction1;
+    let direction1;
 
-next.addEventListener('click', () => {
-    direction1 = -1;
-    sliderLine.style.transition = 'all 0.8s ease 0s';
-    /*move += 50;
-    if (move > 50) {
-        //sliderLine.style.transition = 'none';
-        move = 0
-    }*/
-    carousel.style.justifyContent = 'flex-start'
-    sliderLine.style.transform = 'translate(-50%)';
-})
-
-prev.addEventListener('click', ()=> {
-    if (direction1 == -1) {
-        sliderLine.appendChild(sliderLine.firstElementChild);
-        direction1 = 1;
-    }
-    sliderLine.style.transition = 'all 0.8s ease 0s';
-    /*move -= 50;
-    if (move < 0) {
-        move = 50
-    }*/
-    carousel.style.justifyContent = 'flex-end';
-    sliderLine.style.transform = 'translate(50%)';
-})
-
-sliderLine.addEventListener('transitionend', function() {
-
-    if (direction1 === 1) {
-        sliderLine.prepend(sliderLine.lastElementChild);
-    } else  {
-        sliderLine.appendChild(sliderLine.firstElementChild);
-    }
-
-
-    sliderLine.style.transition = 'none';
-    sliderLine.style.transform = 'translate(0%)';
-    setTimeout(function() {
+    next.addEventListener('click', () => {
+        direction1 = -1;
         sliderLine.style.transition = 'all 0.8s ease 0s';
+        /*move += 50;
+        if (move > 50) {
+            //sliderLine.style.transition = 'none';
+            move = 0
+        }*/
+        carousel.style.justifyContent = 'flex-start'
+        sliderLine.style.transform = 'translate(-50%)';
     })
-});
 
-// Second Slider
+    prev.addEventListener('click', () => {
+        if (direction1 == -1) {
+            sliderLine.appendChild(sliderLine.firstElementChild);
+            direction1 = 1;
+        }
+        sliderLine.style.transition = 'all 0.8s ease 0s';
+        /*move -= 50;
+        if (move < 0) {
+            move = 50
+        }*/
+        carousel.style.justifyContent = 'flex-end';
+        sliderLine.style.transform = 'translate(50%)';
+    })
+
+    sliderLine.addEventListener('transitionend', function () {
+
+        if (direction1 === 1) {
+            sliderLine.prepend(sliderLine.lastElementChild);
+        } else {
+            sliderLine.appendChild(sliderLine.firstElementChild);
+        }
+
+
+        sliderLine.style.transition = 'none';
+        sliderLine.style.transform = 'translate(0%)';
+        setTimeout(function () {
+            sliderLine.style.transition = 'all 0.8s ease 0s';
+        })
+    });
+
+    // Second Slider
     let next2 = document.querySelector('.next');
     let prev2 = document.querySelector('.prev');
     let sliderLine2 = document.querySelector(".slider-line-second");
@@ -703,7 +703,7 @@ sliderLine.addEventListener('transitionend', function() {
     next2.addEventListener('click', () => {
 
         direction2 = -1;
-    
+
         carousel2.style.justifyContent = 'flex-start'
         sliderLine2.style.transform = 'translate(-380px)';
         sliderLine2.style.right = '0px'
@@ -712,8 +712,9 @@ sliderLine.addEventListener('transitionend', function() {
 
     prev2.addEventListener('click', () => {
 
-        if (direction2 === -1) {
+        if (direction2 == -1) {
             direction2 = 1;
+            sliderLine2.appendChild(sliderLine2.firstElementChild);
         }
 
         carousel2.style.justifyContent = 'flex-end';
@@ -724,7 +725,7 @@ sliderLine.addEventListener('transitionend', function() {
 
     sliderLine2.addEventListener('transitionend', function () {
 
-        if (direction2 === 1) {
+        if (direction2 == 1) {
             sliderLine2.prepend(sliderLine2.lastElementChild);
         }
         else {
@@ -734,17 +735,18 @@ sliderLine.addEventListener('transitionend', function() {
 
         sliderLine2.style.transition = 'none';
         sliderLine2.style.transform = 'translate(0)';
-        setTimeout(function () {
-            sliderLine2.style.transition = 'all 0.6s ease';
+        setTimeout(() => {
+            sliderLine2.style.transition = 'all 0.5s';
         })
+
     });
 
 
-    window.addEventListener('scroll', function() {
-    let header = document.querySelector(".row-nav");
-    header.style.transition = "all 0.3s ease";
-    header.classList.toggle('navbar-fixed', window.scrollY >= 132);
-})
+    window.addEventListener('scroll', function () {
+        let header = document.querySelector(".row-nav");
+        header.style.transition = "all 0.3s ease";
+        header.classList.toggle('navbar-fixed', window.scrollY >= 132);
+    })
 
 
 </script>
