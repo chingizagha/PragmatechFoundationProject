@@ -211,6 +211,8 @@ else:
                 print('Number of characters is more than 22')
             elif '@gmail.com' not in email:
                 print('Invalid email')
+            elif not email.endswith('@gmail.com'):
+                print('Email is not ended with @gmail.com')
             else:
                 parol = input('Password: ')
                 if len(parol) < 6:

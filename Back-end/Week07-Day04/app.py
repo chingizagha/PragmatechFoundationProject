@@ -30,19 +30,19 @@
 
     
 #     if weekDay == 1:
-#         print('Monday')
-#     elif weekDay == 2:
-#         print('Tuesday')
-#     elif weekDay == 3:
-#         print('Wednesday')
-#     elif weekDay == 4:
-#         print('Thursday')
-#     elif weekDay == 5:
-#         print('Friday')
-#     elif weekDay == 6:
-#         print('Saturday')
-#     elif weekDay == 7:
 #         print('Sunday')
+#     elif weekDay == 2:
+#         print('Monday')
+#     elif weekDay == 3:
+#         print('Tuesday')
+#     elif weekDay == 4:
+#         print('Wednesday')
+#     elif weekDay == 5:
+#         print('Thursday')
+#     elif weekDay == 6:
+#         print('Friday')
+#     elif weekDay == 7:
+#         print('Saturday')
 #     else:
 #         print('None')
 
@@ -79,8 +79,18 @@
 
 # evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 10])
 
-# Task 6 ==================== ?????
+# Task 6 ==================== 
 
+# def showEmployee(**kwargs):
+
+#     print("Name: " + kwargs.values())
+
+
+# name = input('Enter name: ')
+
+#salary = int(input("Enter salary: "))
+
+#showEmployee(name1 = name)
 
 # Task 7 ==================== ????
 
@@ -113,13 +123,25 @@
 
 # Task 7 ====================
 
-def myfunc(*tuple1):
-    result = 0
-    for i in tuple1:
-         result += i
-    return result
-
-print(myfunc(1, 7, 2, 9, 12, 83))
+# def my_func(*numbers):
+#     cem = 0
+#     for i in numbers:
+#         cem += i 
+#     return cem
 
 
+# print(my_func(1, 2, 3, 4, 5, 6, 7, 8))
 
+
+def my_func(func):
+
+    def decorate():
+        print('Decorate is running')
+        func()
+        print('Decorator stopped')
+    
+    return decorate()
+def main():
+    print('Main is running')
+
+my_func(main)
