@@ -1,0 +1,41 @@
+#1 =========================== Virtual Environement nedir? Ne ucun lazimdir?
+
+Virtual Environement əməliyyat sistemində yaradılmış bir mühitdir. Əsas məqsəd gələcəkdə əməliyyat sistemi və proyektdəki proqramların versiya tutuşmamazlığının qarşısını almaqdı.
+
+    # Əməliyyat sisteminə yüklənməsi
+    pip install virtualenv
+
+    # Test edilməsi
+    virtualenv --version
+
+    # Proyektdə tətbiq edilməsi
+    İlk öncə proyektdə istədiyimiz yerdə folder yaradırıq
+    Daha sonra Terminalda həmin folder i açırıq
+    python -m venv .env (.env burda virtualenv in adıdır)
+
+    # Aktiv edilməsi
+    .\.env\Scripts\activate
+
+
+#2 =========================== Framework nedir? Moldul nedir?
+
+Framework proyektin ən kiçik detalına qədər düşmədən Web application lar yaratmağa icazə verir. Framework lər developer lərə müəyyən struktur verir və developer ə proyektin əsas məntiqinə diqqət yetirəmək imkanı verir. Framework qısaca yenidən istifadə oluna bilən koddur və təkərin yenidən icad edilməsinin qarşısını alır.
+
+Sonu py ilə bitən file moduldur(app.py). Modullar əsasən böyük proqramlarda kodları daha kiçik və idarə oluna bilən file a bölmək üçün istifadə olunur. Modullar arasında kodları import etmək bəzən daha əlverişli olur.
+
+
+#3 =========================== Flask nedir? Ne ucun istifade olunur?
+
+Flask python da yazılmış micro web framework olub və istifadəçiləri kitabxanalar, alətlər və texnologiyalar vasitəsilə web application lar yarada bilirlər.
+
+    # Flask i yükləmək 
+    Virtual Environement i yaratdıqdan və aktiv etdikdən sonra
+    pip install flask 
+
+
+#4 =========================== Decorator nedir? app.route decoratoru nedir ve niye istifade edilir?
+
+Decorator obyektin strukturunu dəyişmədən ona yeni funksiyalar qatmağa kömək edir.
+
+App.route vasitəsilə səhifəyə spesifik url yaradırıq və bu url ilə səhifəyə giriş əldə edirik.
+# Yazılış forması --> @app.route('/example')
