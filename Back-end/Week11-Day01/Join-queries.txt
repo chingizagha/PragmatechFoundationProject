@@ -3,18 +3,18 @@ SQL JOIN Queries
 ==========Employer Table============
 
   EmployerId   CityId   EmployerName
-	1	         1	       Murad
-	2	         1	       Ali
-	3	         2	       Kamal
-	4	         NULL	   John
+	1	 1	    Murad
+	2	 1	    Ali
+	3	 2	    Kamal
+	4	 NULL	    John
 
 
 ==========City Table============
 			
      CityId  CityName	
-	   1	   Sumgait			
-	   2	   London
-	   3	   New York
+	1	Sumgait			
+	2	London
+	3	New York
 
 
 
@@ -27,9 +27,9 @@ Aralarında ən çox istifadə olunanıdı və məqsədi hər iki table arasınd
 
 
   EmployerId   CityId   EmployerName   CityId   CityName  
-	1	         1	       Murad		 1	     Sumgait
-	2	         1	       Ali		     1	     Sumgait
-	3	         2	       Kamal		 2       London
+	1	 1	     Murad	  1	  Sumgait
+	2	 1	     Ali	  1	  Sumgait
+	3	 2	     Kamal	  2       London
 
 
 Left Join:
@@ -37,31 +37,31 @@ Left join ortaq olanları və əlavə olaraq ancaq sol table da olanları götü
 
 
   EmployerId   CityId   EmployerName   CityId   CityName  
-	1	         1	        Murad		 1	     Sumgait
-	2	         1	        Ali		     1	     Sumgait
-	3	         2	        Kamal		 2       London
-	4	         NULL       JOHN		 NULL	 NULL
+	1	  1	      Murad	  1	  Sumgait
+	2	  1	      Al	  1	  Sumgait
+	3	  2	      Kamal	  2       London
+	4	  NULL       JOHN	  NULL	  NULL
 
 Right Join:
 Right join ortaq olanları və əlavə olaraq ancaq sağ table da olanları götürür.
 
 
   EmployerId   CityId   EmployerName   CityId   CityName  
-	1	         1	       Murad		 1	     Sumgait
-	2	         1	       Ali		     1	     Sumgait
-	3	         2	       Kamal		 2       London
-	NUll	     NULL	   NULL		     3       New York
+	1	  1	      Murad      1	  Sumgait
+	2	  1	      Ali	 1	  Sumgait
+	3	  2	      Kamal	 2        London
+	NUll	  NULL	      NULL	 3        New York
 
 Full Join:
 Full Join table larda olan bütün data nı götürür.
 
 
   EmployerId   CityId   EmployerName   CityId   CityName  
-	1	         1	       Murad		 1	     Sumgait
-	2	         1	       Ali		     1	     Sumgait
-	3	         2	       Kamal		 2       London
-	4	         NULL	   John	         NULL    NULL
-	NULL	     NULL      NULL          3       New York
+	1	 1	     Murad	 1	   Sumgait
+	2	 1	     Ali	 1	   Sumgait
+	3	 2	     Kamal	 2         London
+	4	 NULL	     John	 NULL      NULL
+	NULL	 NULL        NULL        3         New York
 
 
 
