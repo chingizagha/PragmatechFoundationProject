@@ -1,0 +1,21 @@
+=================== ORM nədir? ===================
+
+Object-Relational-Mapper
+ORM database ilə sevdiyimiz proqramlaşdırma dilinin əlaqə yaraatmasına kömək edir. Qısaca SQl əvəzinə seçdiyimiz dil ilə database-i idarə edə bilərik. 
+
+    Müsbət tərəfləri:
+     1. SQl əvəzinə bildiyin dildə yazmaq daha rahatdı.
+
+     2. Database sistemini dəyişmək mümkündü. Yəni MySQL və ya PostgreSQL istifadə edə bilərsiz.
+
+     3. Kodlar daha aydındı
+     
+    Mənfi tərəfləri:
+     1. ORM in ilkin quruluşu çətin ola bilər.
+
+     2. SQl-də yazılan kodlar daha sürətlidi.
+
+
+=================== SQLALchemy nədir və nə üçün istifadə olunur? ===================
+
+SQLAlchemy köməyi ilə database və Python arasında əlaqə yaradır. SQLALchemy ORM alətinin vasitəsilə Python kodlarını SQl kodlarına tərcümə edir.
