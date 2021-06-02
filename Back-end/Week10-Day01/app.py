@@ -1,11 +1,30 @@
 from logging import debug
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+db = SQLAlchemy(app)
+
+
+class Blog(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), nullable=False)
+    name = db.Column(db.String(20), nullable=False)
+    image = db.Column(db.String(20))
+
+    def __repr__(self):
+        return f'Blog: {self.title}'
+
+    
 
 @app.route('/index')
 def index():
-    return render_template('app/index.html') 
+    blogs = Blog.query.all()
+
+
+    return render_template('app/index.html', blogs=blogs) 
 
 @app.route('/about')
 def about():

@@ -454,37 +454,22 @@
                 </div>
 
                 <div class="row d-flex row-bottom">
-                    <div class="col-4-pad">
-                        <a href="#" class="blog-a-img">
-                            <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
-                        </a>
-                        <h3 class="f-weight">
-                            <a href="#">Top Companies That Are Best In Industrial Business</a>
-                        </h3>
-                        <p>Posted by <a href="" class="a-orange">Admin</a> in <a href="" class="a-orange">News</a></p>
-                    </div>
+                   {% for blog in blogs%}
                     <div class="col-4-pad">
                         <div class="blog-text">
                             <a href="#" class="blog-a-img">
                                 <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
                             </a>
                             <h3 class="f-weight">
-                                <a href="#">Top Companies That Are Best In Industrial Business</a>
+                                <a href="#">{{blog.title}}</a>
                             </h3>
-                            <p>Posted by <a href="#" class="a-orange">Admin</a> in <a href="#" class="a-orange">News</a>
+                            <p>Posted by <a href="#" class="a-orange">{{blog.name}}</a> in <a href="#" class="a-orange">News</a>
                             </p>
                         </div>
 
                     </div>
-                    <div class="col-4-pad">
-                        <a href="#" class="blog-a-img">
-                            <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
-                        </a>
-                        <h3 class="f-weight">
-                            <a href="#">Top Companies That Are Best In Industrial Business</a>
-                        </h3>
-                        <p>Posted by <a href="" class="a-orange">Admin</a> in <a href="" class="a-orange">News</a></p>
-                    </div>
+                    {% endfor %}
+                    
                 </div>
             </div>
         </div>
