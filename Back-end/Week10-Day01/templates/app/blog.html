@@ -45,42 +45,22 @@
         <div class="block-blog">
             <div class="container max-w-1140 margin-0-auto">
                 <div class="row d-flex">
+
+                {% for blog in blogs %}
                     <div class="col-4">
                         <div class="blog-text">
                             <a href="/single" class="blog-a-img">
-                                <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
+                                <img src={{blog.image}} alt="">
                             </a>
                             <h3>
-                                <a href="#">Top Companies That Are Best In Industrial Business</a>
+                                <a href="#">{{blog.title}}</a>
                             </h3>
-                            <p>Posted by <a href="" class="a-orange">Admin</a> in <a href="" class="a-orange">News</a>
+                            <p>Posted by <a href="" class="a-orange">{{blog.name}}</a> in <a href="" class="a-orange">News</a>
                             </p>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="blog-text">
-                            <a href="/single" class="blog-a-img">
-                                <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
-                            </a>
-                            <h3>
-                                <a href="#">Top Companies That Are Best In Industrial Business</a>
-                            </h3>
-                            <p>Posted by <a href="" class="a-orange">Admin</a> in <a href="" class="a-orange">News</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="blog-text">
-                            <a href="/single" class="blog-a-img">
-                                <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
-                            </a>
-                            <h3>
-                                <a href="#">Top Companies That Are Best In Industrial Business</a>
-                            </h3>
-                            <p>Posted by <a href="" class="a-orange">Admin</a> in <a href="" class="a-orange">News</a>
-                            </p>
-                        </div>
-                    </div>
+                {% endfor %}
+                   
                 </div>
                 <div class="row d-flex">
                     <div class="col-4">

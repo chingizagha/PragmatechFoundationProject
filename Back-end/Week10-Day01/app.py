@@ -1,9 +1,15 @@
 from logging import debug
-from flask import Flask, render_template
+from werkzeug.datastructures import RequestCacheControl
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from os.path import join, dirname, realpath, os
+from sqlalchemy.orm import backref
+from werkzeug.utils import secure_filename
+UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'static/uploads/')
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = SQLAlchemy(app)
 
 
@@ -19,7 +25,7 @@ class Blog(db.Model):
 
     
 
-@app.route('/index')
+@app.route('/')
 def index():
     blogs = Blog.query.all()
 
@@ -40,7 +46,8 @@ def testi():
 
 @app.route('/blog')
 def blog():
-    return render_template('app/blog.html')
+    blogs = Blog.query.all()
+    return render_template('app/blog.html', blogs=blogs)
 
 @app.route('/contact')
 def contact():
@@ -50,6 +57,37 @@ def contact():
 def single():
     return render_template('app/single-blog.html')
 
+@app.route('/admin')
+def admin():
+    return render_template('admin/admin.html')
+
+
+
+@app.route('/admin/blog-add', methods=['GET', 'POST'])
+def blog_add():
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        blog = Blog(
+            title = request.form['title'],
+            name = request.form['name'],
+            image = filename,
+        )
+        db.session.add(blog)
+        db.session.commit()
+        return redirect(url_for('blog'))
+    return render_template('admin/blog-add.html')
+
+@app.route('/admin/blog')
+def blog_list():
+    blogs = Blog.query.all()
+    return render_template('admin/blog.html', blogs=blogs)
+
+@app.route('/admin/blog-update')
+def blog_update():
+    blogs = Blog.query.all()
+    return render_template('admin/blog-update.html', blogs=blogs)
 
 
 if __name__ == "__main__":
