@@ -201,6 +201,9 @@ h2 {
     font-weight: 500;
 }
 
+.f-wrap {
+    flex-wrap: wrap;
+}
 
 .color-ccc {
     color: #ccc;

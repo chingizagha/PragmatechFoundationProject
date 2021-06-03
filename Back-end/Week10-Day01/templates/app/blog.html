@@ -44,13 +44,13 @@
 
         <div class="block-blog">
             <div class="container max-w-1140 margin-0-auto">
-                <div class="row d-flex">
+                <div class="row d-flex f-wrap">
 
                 {% for blog in blogs %}
                     <div class="col-4">
                         <div class="blog-text">
                             <a href="/single" class="blog-a-img">
-                                <img src={{blog.image}} alt="">
+                                <img src="static/uploads/{{blog.image}}" alt="">
                             </a>
                             <h3>
                                 <a href="#">{{blog.title}}</a>
@@ -62,7 +62,7 @@
                 {% endfor %}
                    
                 </div>
-                <div class="row d-flex">
+                <!-- <div class="row d-flex">
                     <div class="col-4">
                         <div class="blog-text">
                             <a href="/single" class="blog-a-img">
@@ -99,7 +99,7 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="row margin-0-auto txt-algn-cnt margin-top-3rem">
                     <div class="col-12 ff-mulish">
