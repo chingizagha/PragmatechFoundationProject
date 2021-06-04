@@ -453,12 +453,12 @@
                     </h2>
                 </div>
 
-                <div class="row d-flex row-bottom">
+                <div class="row d-flex row-bottom f-wrap">
                    {% for blog in blogs%}
-                    <div class="col-4-pad">
+                    <div class="col-4 col-4-pad">
                         <div class="blog-text">
                             <a href="#" class="blog-a-img">
-                                <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="">
+                                <img src="static/uploads/{{blog.image}}" alt="">
                             </a>
                             <h3 class="f-weight">
                                 <a href="#">{{blog.title}}</a>

@@ -1,0 +1,43 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category</th>
+                <th scope="col">Name</th>
+                <!-- <th scope="col">Date</th> -->
+                <th scope="col">Image</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for project in projects %}
+              <tr>
+                <th scope="row">{{project.id}}</th>
+                <td>{{project.category}}</td>
+                <td>{{project.name}}</td>
+                <td>{{project.image}}</td>
+                <td><a href="{{url_for('project_update', id=project.id)}}"><i class="fas fa-edit"></i>Update</a></td>
+                <td><a href="{{url_for('project_update', id=project.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

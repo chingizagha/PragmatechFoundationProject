@@ -19,3 +19,8 @@ ORM database ilə sevdiyimiz proqramlaşdırma dilinin əlaqə yaraatmasına kö
 =================== SQLALchemy nədir və nə üçün istifadə olunur? ===================
 
 SQLAlchemy köməyi ilə database və Python arasında əlaqə yaradır. SQLALchemy ORM alətinin vasitəsilə Python kodlarını SQl kodlarına tərcümə edir.
+
+
+DateTime
+pub_date = db.Column(db.DateTime, nullable=False,
+        default=datetime.utcnow)
