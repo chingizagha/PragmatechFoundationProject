@@ -14,6 +14,9 @@
                 <th scope="col">Name</th>
                 <!-- <th scope="col">Date</th> -->
                 <th scope="col">Image</th>
+                <th scope="col">Short Description</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
               </tr>
             </thead>
             <tbody>
@@ -23,8 +26,11 @@
                 <td>{{blog.title}}</td>
                 <td>{{blog.name}}</td>
                 <td>{{blog.image}}</td>
-                <td><a href="{{url_for('blog_update', id=blogs.id)}}"><i class="fas fa-edit"></i>Update</a></td>
-                <td><a href="{{url_for('blog_update', id=blogs.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+                <td>{{blog.short_desc}}</td>
+                <td>{{blog.desc}}</td>
+                <td>{{blog.category}}</td>
+                <td><a href="{{url_for('blog_update', id=blog.id)}}"><i class="fas fa-edit"></i>Update</a></td>
+                <td><a href="{{url_for('blog_delete', id=blog.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
               {% endfor %}
             </tbody>
           </table>

@@ -49,13 +49,13 @@
                 {% for blog in blogs %}
                     <div class="col-4">
                         <div class="blog-text">
-                            <a href="/single" class="blog-a-img">
+                            <a href="{{url_for('single', id=blog.id)}}" class="blog-a-img">
                                 <img src="static/uploads/{{blog.image}}" alt="">
                             </a>
                             <h3>
                                 <a href="#">{{blog.title}}</a>
                             </h3>
-                            <p>Posted by <a href="" class="a-orange">{{blog.name}}</a> in <a href="" class="a-orange">News</a>
+                            <p>Posted by <a href="" class="a-orange">{{blog.name}}</a> in <a href="" class="a-orange">{{blog.category}}</a>
                             </p>
                         </div>
                     </div>

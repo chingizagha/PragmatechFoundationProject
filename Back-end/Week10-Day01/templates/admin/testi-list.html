@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for testi in testis %}
+              <tr>
+                <td>{{testi.id}}</td>
+                <td>{{testi.name}}</td>
+                <td>{{testi.image}}</td>
+                <td>{{testi.desc}}</td>
+                <td><a href="{{url_for('testi_delete', id=testi.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
