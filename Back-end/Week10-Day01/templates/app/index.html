@@ -275,10 +275,10 @@
 
                     <div class="slider-block-second">
                         <div class="slider-line-second">
-
+                            {% for project in pro_category %}
                             <div class="pro-left project">
                                 <figure class="fig-pro fig-pro-left">
-                                    <img src="{{ url_for('static', filename='img/works_1.jpg')}}">
+                                    <img src="static/uploads/{{project.image}}">
                                 </figure>
 
                                 <div class="pro-overlay"></div>
@@ -287,83 +287,18 @@
                                 <div class="pro-item">
                                     <a href="#">
                                         <span class="span-orange">
-                                            FACTORY
+                                            {{project.category}}
                                         </span>
 
                                         <h2 class="color-fff">
-                                            Building Refinery
+                                            {{project.name}}
                                         </h2>
                                     </a>
                                 </div>
                             </div>
+                            {% endfor %}
 
-                            <div class="pro-mid project">
-
-                                <figure class="fig-pro fig-pro-mid">
-                                    <img src="{{ url_for('static', filename='img/works_4.jpg')}}">
-                                </figure>
-
-                                <div class="pro-overlay"></div>
-
-
-                                <div class="pro-item">
-                                    <a href="#">
-                                        <span class="span-orange">
-                                            FACTORY
-                                        </span>
-
-                                        <h2 class="color-fff">
-                                            Building Refinery
-                                        </h2>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="pro-mid project">
-
-                                <figure class="fig-pro fig-pro-mid">
-                                    <img src="{{ url_for('static', filename='img/works_2.jpg')}}">
-                                </figure>
-
-                                <div class="pro-overlay"></div>
-
-
-                                <div class="pro-item">
-                                    <a href="#">
-                                        <span class="span-orange">
-                                            FACTORY
-                                        </span>
-
-                                        <h2 class="color-fff">
-                                            Building Refinery
-                                        </h2>
-                                    </a>
-                                </div>
-
-                            </div>
-
-                            <div class="pro-right project">
-
-                                <figure class="fig-pro fig-pro-right">
-                                    <img src="{{ url_for('static', filename='img/works_3.jpg')}}">
-                                </figure>
-
-                                <div class="pro-overlay"></div>
-
-
-                                <div class="pro-item">
-                                    <a href="#">
-                                        <span class="span-orange">
-                                            FACTORY
-                                        </span>
-
-                                        <h2 class="color-fff">
-                                            Building Refinery
-                                        </h2>
-                                    </a>
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div>

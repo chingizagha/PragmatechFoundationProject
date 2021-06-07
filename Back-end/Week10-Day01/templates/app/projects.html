@@ -44,11 +44,12 @@
         <div class="block-projects">
             <div class="container max-w-1140 margin-0-auto">
                 <div class="row d-flex">
+                    {% for project in pro_category %}
                     <div class="col-3">
                         <div class="pro-left project">
 
                             <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_1.jpg')}}" alt="">
+                                <img src="static/uploads/{{project.image}}" alt="">
                             </figure>
     
                             <div class="pro-overlay"></div>
@@ -56,172 +57,17 @@
                             <div class="pro-item">
                                 <a href="#">
                                     <span class="span-orange">
-                                        FACTORY
+                                        {{project.category}}
                                     </span>
     
                                     <h2 class="color-fff">
-                                        Building Refinery
+                                        {{project.name}}
                                     </h2>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_2.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_3.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_4.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex">
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_3.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_4.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_2.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="pro-left project">
-
-                            <figure class="fig-pro fig-pro-left">
-                                <img src="{{ url_for('static', filename='img/works_1.jpg')}}" alt="">
-                            </figure>
-    
-                            <div class="pro-overlay"></div>
-    
-                            <div class="pro-item">
-                                <a href="#">
-                                    <span class="span-orange">
-                                        FACTORY
-                                    </span>
-    
-                                    <h2 class="color-fff">
-                                        Building Refinery
-                                    </h2>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

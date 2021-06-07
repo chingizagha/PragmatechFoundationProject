@@ -5,10 +5,11 @@
     <div class="row mt-5 mb-5">
         <form action="" method="post" enctype="multipart/form-data">
             <div class="container">
-                <div class="form-outline">
-                    <label class="form-label" for="typeText">Category</label>
-                    <input type="text" id="typeText" class="form-control" name="category">
-                </div>
+                <select class="form-select" name='category'>
+                    {% for category in pro_category %}
+                    <option value="{{category.name}}">{{category.name}}</option>
+                    {% endfor %}
+                </select><br>
                 <div class="form-outline">
                     <label class="form-label" for="typeText">Name</label>
                     <input type="text" id="typeText" class="form-control" name="name">

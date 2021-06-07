@@ -1,0 +1,35 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for category in pro_category %}
+                    <tr>
+                        <th scope="row">{{category.id}}</th>
+                        <td>{{category.name}}</td>
+                        <td><a href="{{url_for('pro_cat_delete', id=category.id)}}" onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <a href="{{url_for('pro_cat_add')}}" class="btn btn-success ml-5">Add Category</a>
+            <br><br>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endblock %}

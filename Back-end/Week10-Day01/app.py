@@ -47,9 +47,14 @@ class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    image = db.Column(db.String(20))
-    category = db.Column(db.String(20), nullable=False)
+    image = db.Column(db.String(20), default='uploads/default.jpeg')
+    category = db.Column(db.Integer, db.ForeignKey('procategory.id'), nullable=False)
 
+class ProCategory(db.Model):
+    __tablename__ = 'procategory'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    category = db.relationship(Project, backref='procategories', lazy=True, cascade='all, delete')
     
 
 # USER ==============================
@@ -58,7 +63,8 @@ class Project(db.Model):
 def index():
     blogs = Blog.query.all()[-3:]
     testis = Testi.query.all()[-2:]
-    return render_template('app/index.html', blogs=blogs, testis=testis) 
+    pro_category = Project.query.all()[-4:]
+    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category) 
 
 @app.route('/about')
 def about():
@@ -66,7 +72,8 @@ def about():
 
 @app.route('/projects')
 def project():
-    return render_template('app/projects.html')
+    pro_category = Project.query.all()
+    return render_template('app/projects.html', pro_category=pro_category)
 
 @app.route('/testi')
 def testi():
@@ -184,6 +191,7 @@ def project_list():
 
 @app.route('/admin/project-add', methods=['GET', 'POST'])
 def project_add():
+    pro_category = ProCategory.query.all()
     if request.method=='POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
@@ -196,14 +204,63 @@ def project_add():
         db.session.add(project)
         db.session.commit()
         return redirect(url_for('project_list'))
-    return render_template('admin/project-add.html')
+    return render_template('admin/project-add.html', pro_category=pro_category)
 
-@app.route('/admin/project-update')
-def project_update():
-    projects = Project.query.all()
-    return render_template('admin/project-update.html', projects=projects)
+@app.route('/admin/project-update/<int:id>', methods=['GET', 'POST'])
+def project_update(id):
+    projects = Project.query.get_or_404(id)
+    pro_category = ProCategory.query.all()
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        projects.name = request.form['name']
+        projects.category = request.form['category']
+        projects.image = filename
+        db.session.commit()
+        return redirect(url_for('project_list'))
+    return render_template('admin/project-update.html', projects=projects, pro_category=pro_category)
+
+@app.route('/admin/pro-delete/<int:id>', methods=['GET', 'POST'])
+def pro_delete(id):
+    project = Project.query.get_or_404(id)
+    db.session.delete(project)
+    db.session.commit()
+    return redirect(url_for('project_list'))
+
+
+@app.route('/admin/pro-cat-list')
+def pro_cat_list():
+    pro_category = ProCategory.query.all()
+    return render_template('admin/pro-cat-list.html', pro_category=pro_category)
+
+@app.route('/admin/pro-cat-add', methods=['GET', 'POST'])
+def pro_cat_add():
+    if request.method == 'POST':
+        pro_category = ProCategory(
+            name = request.form['name']
+        )
+        db.session.add(pro_category)
+        db.session.commit()
+        return redirect(url_for('project_add'))
+    return render_template('admin/pro-cat-add.html')
+
+@app.route('/admin/pro-cat-delete/<int:id>', methods=['GET', 'POST'])
+def pro_cat_delete(id):
+    pro_category = ProCategory.query.get_or_404(id)
+    db.session.delete(pro_category)
+    db.session.commit()
+    return redirect(url_for('pro_cat_list'))
+
+
+
+
+
 
 # =======================================
+
+
+
 
 # TESTIMONIALS SECTION =============================
 
@@ -235,7 +292,7 @@ def testi_delete(id):
     db.session.commit()
     return redirect(url_for('testi_list'))
 
-
+# =======================================
 
 
 

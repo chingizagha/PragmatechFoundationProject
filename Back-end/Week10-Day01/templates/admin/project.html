@@ -24,16 +24,14 @@
                 <td>{{project.name}}</td>
                 <td>{{project.image}}</td>
                 <td><a href="{{url_for('project_update', id=project.id)}}"><i class="fas fa-edit"></i>Update</a></td>
-                <td><a href="{{url_for('project_update', id=project.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+                <td><a href="{{url_for('pro_delete', id=project.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
               {% endfor %}
             </tbody>
           </table>
       </div>
-    
-      
     </div>
   </div>
-</div>
+
 
 
 
