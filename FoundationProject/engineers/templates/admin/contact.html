@@ -1,0 +1,40 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for contact in contacts %}
+              <tr>
+                <td>{{contact.first_name}}</td>
+                <td>{{contact.last_name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
+                <td>{{contact.message}}</td>
+                <td><a href="{{url_for('contact_delete', id=contact.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

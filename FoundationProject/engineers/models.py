@@ -6,7 +6,7 @@ class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     name = db.Column(db.String(20), nullable=False)
-    image = db.Column(db.String(20), default='uploads/default.jpeg')
+    image = db.Column(db.String(20), default='uploads/default.png')
     short_desc = db.Column(db.String(100), nullable=False)
     desc = db.Column(db.Text, nullable=False)
     category = db.Column(db.Integer, db.ForeignKey('blogcategory.id'), nullable=False)
@@ -42,3 +42,13 @@ class ProCategory(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     category = db.relationship(Project, backref='procategories', lazy=True, cascade='all, delete')
+
+
+class Contact(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    first_name = db.Column(db.String(50), nullable=False)
+    last_name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    phone = db.Column(db.Integer, nullable=False)
+    message = db.Column(db.Text, nullable=False)

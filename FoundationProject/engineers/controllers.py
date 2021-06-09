@@ -1,8 +1,8 @@
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Testi, Project, ProCategory
-
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact
+from engineers.forms import ContactForm
 
 
 
@@ -33,9 +33,23 @@ def blog():
     blogs = Blog.query.all()
     return render_template('app/blog.html', blogs=blogs)
 
-@app.route('/contact')
+@app.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('app/contact.html')
+    form = ContactForm()
+    if form.validate_on_submit():
+        contact = Contact(
+            first_name = form.first_name.data,
+            last_name = form.last_name.data,
+            email = form.email.data,
+            phone = form.phone.data,
+            message = form.message.data
+        )
+        db.session.add(contact)
+        db.session.commit()
+        return redirect(url_for('contact'))
+    return render_template('app/contact.html', form=form)
+
+
 
 @app.route('/single/<int:id>')
 def single(id):
@@ -200,14 +214,7 @@ def pro_cat_delete(id):
     db.session.commit()
     return redirect(url_for('pro_cat_list'))
 
-
-
-
-
-
 # =======================================
-
-
 
 
 # TESTIMONIALS SECTION =============================
@@ -239,5 +246,23 @@ def testi_delete(id):
     db.session.delete(testi)
     db.session.commit()
     return redirect(url_for('testi_list'))
+
+# =======================================
+
+# CONTACT SECTION =============================
+
+@app.route('/admin/contact')
+def contact_info():
+    contacts = Contact.query.all()
+    return render_template ('admin/contact.html', contacts=contacts)
+
+
+@app.route('/admin/contact-delete/<int:id>', methods=['GET', 'POST'])
+def contact_delete(id):
+    contact = Contact.query.get_or_404(id)
+    db.session.delete(contact)
+    db.session.commit()
+    return redirect(url_for('contact_info'))
+
 
 # =======================================
