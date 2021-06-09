@@ -213,41 +213,41 @@
                             </h2>
 
                             <div class="index-form">
-                                <form action="#">
-
+                                
+                                <form method='POST', action="">
+                                    {{ form.hidden_tag() }}
                                     <div class="row d-flex">
                                         <div class="col-6">
-                                            <input type="text" name="name" placeholder="Your Name*"
-                                                class="form-name form-right">
+                                            
+                                                {{form.name(class="form-name form-right")}}
+                                                
                                         </div>
 
                                         <div class="col-6">
-                                            <input type="number" name="number" placeholder="Phone Number"
-                                                class="form-number form-right">
+                                            
+                                                {{form.phone(class="form-number form-right")}}
                                         </div>
                                     </div>
 
                                     <div class="row d-flex">
                                         <div class="col-6">
-                                            <input type="email" name="email" placeholder="Your Email*"
-                                                class="form-email form-right">
+                                            
+                                                {{form.email(class="form-email form-right")}}
                                         </div>
 
                                         <div class="col-6">
-                                            <input type="text" name="subject" placeholder="Subject"
-                                                class="form-subject form-right">
+                                            
+                                                {{form.subject(class="form-subject form-right")}}
                                         </div>
                                     </div>
-
-
-
                                     <div class="row d-flex">
                                         <div class="col-6">
-                                            <textarea name="message" cols="30" rows="7" placeholder="Message*"
-                                                class="form-textarea form-right"></textarea>
+                                            
+                                                {{form.message(cols="30", rows="7", class="form-textarea form-right")}}
                                         </div>
                                         <div class="col-6 col-6-btn">
-                                            <input type="submit" value="SEND MESSAGE" class="btn-orange">
+                                            
+                                                {{form.submit(class='btn-orange')}}
                                         </div>
                                     </div>
                                 </form>

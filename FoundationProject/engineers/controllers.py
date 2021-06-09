@@ -1,18 +1,32 @@
+from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact
-from engineers.forms import ContactForm
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote
+from engineers.forms import ContactForm, QuoteForm
 
 
 
 # USER ==============================
-@app.route('/index')
+
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     blogs = Blog.query.all()[-3:]
     testis = Testi.query.all()[-2:]
     pro_category = Project.query.all()[-4:]
-    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category) 
+    form = QuoteForm()
+    if form.validate_on_submit():
+        quote = Quote(
+            name = form.name.data,
+            phone = form.phone.data,
+            email = form.email.data,
+            subject = form.subject.data,
+            message = form.message.data
+        )
+        db.session.add(quote)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category, form=form) 
 
 @app.route('/about')
 def about():
@@ -62,6 +76,23 @@ def single(id):
 def admin():
     return render_template('admin/admin.html')
 
+# =======================================
+
+# HOME SECTION =============================
+
+@app.route('/admin/quote')
+def quote_info():
+    quotes = Quote.query.all()
+    return render_template ('admin/quote.html', quotes=quotes)
+
+@app.route('/admin/quote-delete/<int:id>', methods=['GET', 'POST'])
+def quote_delete(id):
+    quote = Quote.query.get_or_404(id)
+    db.session.delete(quote)
+    db.session.commit()
+    return redirect(url_for('quote_info'))
+
+# =======================================
 
 # BLOG SECTION =============================
 

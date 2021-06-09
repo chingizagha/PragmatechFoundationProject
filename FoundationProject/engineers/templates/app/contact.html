@@ -1,127 +1,114 @@
 {% extends 'app/base.html' %}
 {% block content %}
 
-    <menu>
-        <div class="row nav-sticky">
-            <div class="row-nav col-12 ff-oswald">
-                <ul class="d-flex nav-ul color-fff">
-                    <li class="nav-li"><a href="/index" >Home</a></li>
-                    <li class="nav-li"><a href="/about" >About Us</a></li>
-                    <li class="nav-li"><a href="/projects">Our Projects</a></li>
-                    <li class="nav-li"><a href="/testi">Testimonials</a></li>
-                    <li class="nav-li"><a href="/blog" >Blog</a></li>
-                    <li class="nav-li"><a href="/contact" class="selected">Contact</a></li>
-                </ul>
+<menu>
+    <div class="row nav-sticky">
+        <div class="row-nav col-12 ff-oswald">
+            <ul class="d-flex nav-ul color-fff">
+                <li class="nav-li"><a href="/index">Home</a></li>
+                <li class="nav-li"><a href="/about">About Us</a></li>
+                <li class="nav-li"><a href="/projects">Our Projects</a></li>
+                <li class="nav-li"><a href="/testi">Testimonials</a></li>
+                <li class="nav-li"><a href="/blog">Blog</a></li>
+                <li class="nav-li"><a href="/contact" class="selected">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</menu>
+
+<section>
+    <figure class="bg-img-fig height-60vh">
+        <div class="overlay"></div>
+        <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="" class="bg-img user-none">
+        <div class="row-title ">
+            <div class="about-section-title txt-algn-cnt max-w-1140 p-abs margin-0-auto">
+                <h2 class="margin-0">Get In Touch</h2>
+                <p class="d-flex jc-center ff-mulish ">
+                    <a href="/index" class="color-fff margin-r-1">Home</a>
+                    <span class="margin-r-1">/</span>
+                    <span class="margin-r-1">Contact Us</span>
+                </p>
             </div>
         </div>
-    </menu>
+    </figure>
+</section>
 
-    <section>
-        <figure class="bg-img-fig height-60vh">
-            <div class="overlay"></div>
-            <img src="{{ url_for('static', filename='img/hero_1.jpg')}}" alt="" class="bg-img user-none">
+<main>
+    <div class="block-contact">
+        <div class="container-contact max-w-1140 margin-0-auto">
+            
+            
+            <form method='POST', action="">
+                {{ form.hidden_tag() }}
+                <div class="row d-flex">
+                    <div class="col-6 padding-side">
+                        {{form.first_name.label}}
+                        {{form.first_name}}
+                    </div>
+                    <div class="col-6 padding-side">
+                        {{form.last_name.label}}
+                        {{form.last_name}}
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-6 padding-side">
+                        {{form.email.label}}
+                        {{form.email}}
+                    </div>
+                    <div class="col-6 padding-side">
+                        {{form.phone.label}}
+                        {{form.phone}}
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-12 padding-side margin-b-1">
+                        {{form.message.label}}
+                        {{form.message(cols="30", rows="10")}}
+                    </div>
+                </div>
+                <div class="row d-flex">
+                    <div class="col-12 padding-side margin-b-1">
+                        {{form.submit(class="btn-orange-contact")}}
+                    </div>
+                </div>
+            </form>
 
-            <div class="row-title ">
-                <div class="about-section-title txt-algn-cnt max-w-1140 p-abs margin-0-auto">
-                    <h2 class="margin-0">Get In Touch</h2>
-                    <p class="d-flex jc-center ff-mulish ">
-                        <a href="/index" class="color-fff margin-r-1">Home</a>
-                        <span class="margin-r-1">/</span>
-                        <span class="margin-r-1">Contact Us</span>
+        </div>
+    </div>
+
+    <div class="block-bottom">
+        <div class="container-bottom margin-0-auto max-w-1140">
+            <div class="row d-flex ">
+                <div class="col-4 block-bottom-title padding-side">
+                    <h3 class="margin-bottom-3">
+                        <span class="span-orange">Our Philosphy</span>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat
+                        quis delectus ea? Dolore, amet reprehenderit.
+                    </p>
+                </div>
+                <div class="col-4 block-bottom-title padding-side">
+                    <h3 class="margin-bottom-3">
+                        <span class="span-orange">Our Philosphy</span>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat
+                        quis delectus ea? Dolore, amet reprehenderit.
+                    </p>
+                </div>
+                <div class="col-4 block-bottom-title padding-side">
+                    <h3 class="margin-bottom-3">
+                        <span class="span-orange margin-bottom-3">Our Philosphy</span>
+                    </h3>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat
+                        quis delectus ea? Dolore, amet reprehenderit.
                     </p>
                 </div>
             </div>
-
-
-        </figure>
-
-
-
-    </section>
-
-    <main>
-        <div class="block-contact">
-            <div class="container-contact max-w-1140 margin-0-auto">
-                
-                <form method='POST', action="">
-                    {{ form.hidden_tag() }}
-                    <div class="row d-flex">
-                        <div class="col-6 padding-side">
-                            {{form.first_name.label}}
-                            {{form.first_name}}
-                            <!-- <label for="f-name">First Name</label>
-                            <input type="text" id="f-name" name="first-name"> -->
-                        </div>
-                        <div class="col-6 padding-side">
-                            {{form.last_name.label}}
-                            {{form.last_name}}
-                            <!-- <label for="l-name">Last Name</label>
-                            <input type="text" id="l-name" name="last-name"> -->
-                        </div>
-                    </div>
-                    <div class="row d-flex">
-                        <div class="col-6 padding-side">
-                            {{form.email.label}}
-                            {{form.email}}
-                            <!-- <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email"> -->
-                        </div>
-                        <div class="col-6 padding-side">
-                            {{form.phone.label}}
-                            {{form.phone}}
-                            <!-- <label for="number">Tel. Number</label>
-                            <input type="number" id="number" name="number"> -->
-                        </div>
-                    </div>
-                    <div class="row d-flex">
-                        <div class="col-12 padding-side margin-b-1">
-                            {{form.message.label}}
-                            {{form.message(cols="30", rows="10")}}
-                            <!-- <label for="message">Message</label>
-                            <textarea name="" id="message" cols="30" rows="10"></textarea> -->
-                        </div>
-                    </div>
-                    <div class="row d-flex">
-                        <div class="col-12 padding-side margin-b-1">
-                            {{form.submit(class="btn-orange-contact")}}
-                            <!-- <input type="submit" value="Send Message" class="btn-orange-contact"> -->
-                        </div>
-                    </div>
-                </form>
-               
-            </div>
         </div>
-
-        <div class="block-bottom">
-            <div class="container-bottom margin-0-auto max-w-1140">
-                <div class="row d-flex ">
-                    <div class="col-4 block-bottom-title padding-side">
-                      <h3 class="margin-bottom-3">
-                        <span class="span-orange">Our Philosphy</span> 
-                      </h3>
-                      <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
-                      </p>
-                    </div>
-                    <div class="col-4 block-bottom-title padding-side">
-                        <h3 class="margin-bottom-3">
-                            <span class="span-orange">Our Philosphy</span> 
-                          </h3>
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
-                          </p>
-                    </div>
-                    <div class="col-4 block-bottom-title padding-side">
-                        <h3 class="margin-bottom-3">
-                            <span class="span-orange margin-bottom-3">Our Philosphy</span> 
-                          </h3>
-                          <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis recusandae, iure repellat quis delectus ea? Dolore, amet reprehenderit.
-                          </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-    <script src="{{ url_for('static', filename='js/script.js')}}"></script>
-    {% endblock %}
+    </div>
+</main>
+<script src="{{ url_for('static', filename='js/script.js')}}"></script>
+{% endblock %}

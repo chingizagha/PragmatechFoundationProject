@@ -1,0 +1,40 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Email</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for quote in quotes %}
+              <tr>
+                <td>{{quote.name}}</td>
+                <td>{{quote.phone}}</td>
+                <td>{{quote.email}}</td>
+                <td>{{quote.subject}}</td>
+                <td>{{quote.message}}</td>
+                <td><a href="{{url_for('quote_delete', id=quote.id)}}"><i class="fas fa-trash-alt"></i>Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
