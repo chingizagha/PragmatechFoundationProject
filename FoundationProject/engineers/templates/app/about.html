@@ -31,12 +31,7 @@
                     </p>
                 </div>
             </div>
-
-
         </figure>
-
-
-
     </section>
 
     <main>
@@ -55,23 +50,24 @@
 
                 <div class="row row-about-team d-flex margin-0-auto ">
 
+                    {% for worker in workers %}
                     <div class="col-3 padding-side">
                         <div class="worker">
                             <figure class="about-fig">
-                                <img src="{{ url_for('static', filename='img/person_1.jpg')}}" alt="">
+                                <img src="static/uploads/{{worker.image}}" alt="">
 
                                 <div class="social-icons">
-                                    <a href="#">
+                                    <a href="{{worker.fb_link}}">
 
                                         <i class="fab fa-facebook-f"></i>
 
                                     </a>
-                                    <a href="#">
+                                    <a href="{{worker.tw_link}}">
 
                                         <i class="fab fa-twitter"></i>
 
                                     </a>
-                                    <a href="#">
+                                    <a href="{{worker.ln_link}}">
 
                                         <i class="fab fa-linkedin-in"></i>
 
@@ -81,16 +77,17 @@
 
                             <div class="worker-info txt-algn-cnt">
                                 <h3>
-                                    Craig Daniel
+                                    {{worker.name}}
                                 </h3>
                                 <span class="span-orange">
-                                    Engineer
+                                    {{worker.work}}
                                 </span>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="col-3 padding-side">
+                    <!-- <div class="col-3 padding-side">
 
                         <div class="worker">
                             <figure class="about-fig">
@@ -194,7 +191,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

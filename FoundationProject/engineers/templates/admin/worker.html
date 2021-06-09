@@ -1,0 +1,39 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Work</th>
+                <th scope="col">Image</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for worker in workers %}
+              <tr>
+                <th scope="row">{{worker.id}}</th>
+                <td>{{worker.name}}</td>
+                <td>{{worker.work}}</td>
+                <td>{{worker.image}}</td>
+                <td><a href="{{url_for('worker_update', id=worker.id)}}"><i class="fas fa-edit"></i>Update</a></td>
+                <td><a href="{{url_for('worker_delete', id=worker.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

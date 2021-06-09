@@ -2,7 +2,7 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker
 from engineers.forms import ContactForm, QuoteForm
 
 
@@ -30,7 +30,8 @@ def index():
 
 @app.route('/about')
 def about():
-    return render_template('app/about.html')
+    workers = Worker.query.all()
+    return render_template('app/about.html', workers=workers)
 
 @app.route('/projects')
 def project():
@@ -91,6 +92,59 @@ def quote_delete(id):
     db.session.delete(quote)
     db.session.commit()
     return redirect(url_for('quote_info'))
+
+# =======================================
+
+# ABOUT US SECTION =============================
+
+@app.route('/admin/worker')
+def worker_list():
+    workers = Worker.query.all()
+    return render_template('admin/worker.html', workers=workers)
+
+@app.route('/admin/worker-add', methods=['GET', 'POST'])
+def worker_add():
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        worker = Worker(
+            name = request.form['name'],
+            work = request.form['work'],
+            fb_link = request.form['fb'],
+            tw_link = request.form['tw'],
+            ln_link = request.form['ln'],
+            image = filename
+        )
+        db.session.add(worker)
+        db.session.commit()
+        return redirect(url_for('worker_list'))
+    return render_template('admin/worker-add.html')
+
+@app.route('/admin/worker-update/<int:id>', methods=['GET', 'POST'])
+def worker_update(id):
+    workers = Worker.query.get_or_404(id)
+    if request.method == 'POST':    
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        workers.name = request.form['name']
+        workers.work = request.form['work']
+        workers.fb_link = request.form['fb']
+        workers.tw_link = request.form['tw']
+        workers.ln_link = request.form['ln']
+        workers.image = filename
+        db.session.commit()
+        return redirect(url_for('worker_list'))
+    return render_template('admin/worker-update.html', workers=workers)
+    
+@app.route('/admin/worker-delete/<int:id>', methods=['GET', 'POST'])
+def worker_delete(id):
+    worker = Blog.query.get_or_404(id)
+    db.session.delete(worker)
+    db.session.commit()
+    return redirect(url_for('worker_list'))
+
 
 # =======================================
 
