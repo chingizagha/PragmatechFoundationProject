@@ -1,4 +1,6 @@
 from engineers import db
+from datetime import datetime
+
 
 
 class Blog(db.Model):
@@ -72,3 +74,16 @@ class Worker(db.Model):
     tw_link = db.Column(db.String(250), nullable=True)
     ln_link = db.Column(db.String(250), nullable=True)
     
+class Address(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    icon = db.Column(db.String(20), nullable=True)
+    desc = db.Column(db.String(50), nullable=False)
+    big_desc = db.Column(db.String(75), nullable=False)
+
+class Comment(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(32), nullable=False)
+    mail = db.Column(db.String(32), nullable=False)
+    text = db.Column(db.String(140), nullable=False)
+    timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)

@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Description</th>
+                <th scope="col">Short Description</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for add in address %}
+              <tr>
+                <th scope="row">{{add.id}}</th>
+                <td><i class="{{add.icon}} flaticon-placeholder"></i></td>
+                <td>{{add.desc}}</td>
+                <td>{{add.big_desc}}</td>
+                <td><a href="{{url_for('address_delete', id=add.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

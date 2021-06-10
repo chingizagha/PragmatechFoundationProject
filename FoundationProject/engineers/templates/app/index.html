@@ -1,6 +1,7 @@
 {% extends 'app/base.html' %}
 {% block content %}
 
+
     <menu>
         <div class="row nav-sticky">
             <div class="row-nav col-12 ff-oswald">
@@ -421,6 +422,7 @@
     </main>
 
     <script>
+
         // First Slider
         let move = 0;
         let next = document.querySelector('.arrow-r');
@@ -458,7 +460,7 @@
     
         sliderLine.addEventListener('transitionend', function () {
     
-            if (direction1 === 1) {
+            if (direction1 == 1) {
                 sliderLine.prepend(sliderLine.lastElementChild);
             } else {
                 sliderLine.appendChild(sliderLine.firstElementChild);
@@ -472,7 +474,7 @@
             })
         });
     
-        // Second Slider
+        // Second Slider ===============================
         let next2 = document.querySelector('.next');
         let prev2 = document.querySelector('.prev');
         let sliderLine2 = document.querySelector(".slider-line-second");
@@ -483,7 +485,6 @@
         next2.addEventListener('click', () => {
     
             direction2 = -1;
-    
             carousel2.style.justifyContent = 'flex-start'
             sliderLine2.style.transform = 'translate(-380px)';
             sliderLine2.style.right = '0px'
@@ -493,17 +494,18 @@
         prev2.addEventListener('click', () => {
     
             if (direction2 == -1) {
-                direction2 = 1;
                 sliderLine2.appendChild(sliderLine2.firstElementChild);
+                direction2 = 1;
             }
+            
     
             carousel2.style.justifyContent = 'flex-end';
             sliderLine2.style.transform = 'translate(380px)';
-            sliderLine2.style.left = '15px';
             sliderLine2.style.right = '0px';
+            sliderLine2.style.left = '15px';
         })
     
-        sliderLine2.addEventListener('transitionend', function () {
+        sliderLine2.addEventListener('transitionend', function() {
     
             if (direction2 == 1) {
                 sliderLine2.prepend(sliderLine2.lastElementChild);
@@ -514,8 +516,8 @@
     
     
             sliderLine2.style.transition = 'none';
-            sliderLine2.style.transform = 'translate(0)';
-            setTimeout(() => {
+            sliderLine2.style.transform = 'translate(0%)';
+            setTimeout(function() {
                 sliderLine2.style.transition = 'all 0.5s';
             })
     

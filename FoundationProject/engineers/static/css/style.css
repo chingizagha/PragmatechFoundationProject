@@ -656,7 +656,6 @@ h2 {
     display: flex;
     flex-shrink: 0;
     width: 1520px;
-    transition: all 0.6s ease;
 }
 
 .container-project .row-bottom {

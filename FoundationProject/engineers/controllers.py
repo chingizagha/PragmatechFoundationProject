@@ -2,7 +2,7 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address
 from engineers.forms import ContactForm, QuoteForm
 
 
@@ -11,6 +11,7 @@ from engineers.forms import ContactForm, QuoteForm
 
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    address = Address.query.all()
     blogs = Blog.query.all()[-3:]
     testis = Testi.query.all()[-2:]
     pro_category = Project.query.all()[-4:]
@@ -26,30 +27,35 @@ def index():
         db.session.add(quote)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category, form=form) 
+    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category, form=form, address=address) 
 
 @app.route('/about')
 def about():
+    address = Address.query.all()
     workers = Worker.query.all()
-    return render_template('app/about.html', workers=workers)
+    return render_template('app/about.html', workers=workers, address=address)
 
 @app.route('/projects')
 def project():
+    address = Address.query.all()
     pro_category = Project.query.all()
-    return render_template('app/projects.html', pro_category=pro_category)
+    return render_template('app/projects.html', pro_category=pro_category, address=address)
 
 @app.route('/testi')
 def testi():
     testis = Testi.query.all()
-    return render_template('app/testi.html', testis=testis)
+    address = Address.query.all()
+    return render_template('app/testi.html', testis=testis, address=address)
 
 @app.route('/blog')
 def blog():
     blogs = Blog.query.all()
-    return render_template('app/blog.html', blogs=blogs)
+    address = Address.query.all()
+    return render_template('app/blog.html', blogs=blogs, address=address)
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
+    address = Address.query.all()
     form = ContactForm()
     if form.validate_on_submit():
         contact = Contact(
@@ -62,20 +68,34 @@ def contact():
         db.session.add(contact)
         db.session.commit()
         return redirect(url_for('contact'))
-    return render_template('app/contact.html', form=form)
+    return render_template('app/contact.html', form=form, address=address)
 
 
 
 @app.route('/single/<int:id>')
 def single(id):
+    address = Address.query.all()
     blog = Blog.query.get_or_404(id)
-    return render_template('app/single-blog.html', blog=blog)
+    return render_template('app/single-blog.html', blog=blog, address=address)
 
 # ADMIN ===============================
 
 @app.route('/admin')
 def admin():
     return render_template('admin/admin.html')
+
+# =======================================
+
+# INCLUDES SECTION =============================
+
+@app.route('/index')
+def navbar():
+    address = Address.query.all()
+    return render_template('includes/header.html', address=address)
+
+
+
+
 
 # =======================================
 
@@ -92,6 +112,35 @@ def quote_delete(id):
     db.session.delete(quote)
     db.session.commit()
     return redirect(url_for('quote_info'))
+
+# ==========
+
+@app.route('/admin/address')
+def address_info():
+    address = Address.query.all()
+    return render_template('admin/address.html', address=address)
+
+@app.route('/admin/address-add', methods=['GET', 'POST'])
+def address_add():
+    if request.method == 'POST':
+        address = Address(
+            icon = request.form['icon'],
+            desc = request.form['desc'],
+            big_desc = request.form['big_desc']
+        )
+        db.session.add(address)
+        db.session.commit()
+        return redirect(url_for('address_info'))
+    return render_template('admin/address-add.html')
+
+@app.route('/admin/address-add/<int:id>', methods=['GET', 'POST'])
+def address_delete(id):
+    address = Address.query.get_or_404(id)
+    db.session.delete(address)
+    db.session.commit()
+    return redirect(url_for('address_info'))
+    
+
 
 # =======================================
 
@@ -298,9 +347,7 @@ def pro_cat_delete(id):
     db.session.delete(pro_category)
     db.session.commit()
     return redirect(url_for('pro_cat_list'))
-
 # =======================================
-
 
 # TESTIMONIALS SECTION =============================
 
@@ -341,13 +388,10 @@ def contact_info():
     contacts = Contact.query.all()
     return render_template ('admin/contact.html', contacts=contacts)
 
-
 @app.route('/admin/contact-delete/<int:id>', methods=['GET', 'POST'])
 def contact_delete(id):
     contact = Contact.query.get_or_404(id)
     db.session.delete(contact)
     db.session.commit()
     return redirect(url_for('contact_info'))
-
-
 # =======================================
