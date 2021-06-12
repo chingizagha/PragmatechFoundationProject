@@ -1,67 +1,144 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/admin">Home</a>
+
+
+
+
+
+
+
+<div class="wrapper">
+  
+  <nav id="sidebar">
+    
+    <div class="sidebar-header">
+      <h3>Engineers</h3>
+    </div>
+    <ul class="lisst-unstyled components">
+
+      <!-- <p>The Providers</p> -->
+      <li class="active">
+        <a href="/admin" data-toggle="collapse" aria-expanded="false" class="">Home</a>
+      </li>
+      <li>
+        <a href="#layoutSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Layout</a>
+        <ul class="collapse list-unstyled" id="layoutSubmenu">
+          <li>
+            <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Projects</a>
+              <ul class="collapse list-unstyled" id="projectSubmenu">
+                <li>
+                  <a href="/admin/project">Project</a>
+                </li>
+                <li>
+                  <a href="/admin/project-add">Add Project</a>
+                </li>
+                <li>
+                  <a href="/admin/pro-cat-list">Category</a>
+                </li>
+              </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Projects
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/project">Project</a></li>
-              <li><a class="dropdown-item" href="/admin/project-add">Add Project</a></li>
-              <li><a class="dropdown-item" href="/admin/pro-cat-list">Category</a></li>
-            </ul>
+          <li>
+            <a href="#testiSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Testimonials</a>
+              <ul class="collapse list-unstyled" id="testiSubmenu">
+                <li>
+                  <a href="/admin/testi">Testimonials</a>
+                </li>
+                <li>
+                  <a href="/admin/testi-add">Add Testimonial</a>
+                </li>
+              </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Blog
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/blog">Blog</a></li>
-              <li><a class="dropdown-item" href="/admin/blog-add">Add Blog</a></li>
-              <li><a class="dropdown-item" href="/admin/blog-cat-list">Category</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Testimonials
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/testi">Testi</a></li>
-              <li><a class="dropdown-item" href="/admin/testi-add">Add Testi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Contact
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/contact">Contact</a></li>
-              <li><a class="dropdown-item" href="/admin/quote">Quote</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Worker
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/worker">Worker</a></li>
-              <li><a class="dropdown-item" href="/admin/worker-add">Add Worker</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Address
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/admin/address">Address</a></li>
-              <li><a class="dropdown-item" href="/admin/address-add">Add Address</a></li>
-            </ul>
+          <li>
+            <a href="#addressSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Address</a>
+              <ul class="collapse list-unstyled" id="testiSubmenu">
+                <li>
+                  <a href="/admin/address">Address</a>
+                </li>
+                <li>
+                  <a href="/admin/address-add">Add Address</a>
+                </li>
+              </ul>
+            
           </li>
         </ul>
-      </div>
-    </div>
+      </li>
+
+      <li>
+        <a href="#blogSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
+        <ul class="collapse list-unstyled" id="blogSubmenu">
+          <li>
+            <a href="/admin/blog">Blog</a>
+          </li>
+          <li>
+            <a href="/admin/blog-add">Add Blog</a>
+          </li>
+          <li>
+            <a href="/admin/blog-cat-list">Category</a>
+          </li>
+
+
+        </ul>
+      </li>
+
+      <li>
+        <a href="#workerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Worker</a>
+        <ul class="collapse list-unstyled" id="workerSubmenu">
+          <li>
+            <a href="/admin/worker">Worker</a>
+          </li>
+          <li>
+            <a href="/admin/worker-add">Add Worker</a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
+        <ul class="collapse list-unstyled" id="contactSubmenu">
+          <li>
+            <a href="/admin/contact">Contact</a>
+          </li>
+          <li>
+            <a href="/admin/quote">Quote</a>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
   </nav>
+
+
+  <div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn  btn-info">
+          <i class="fas fa-align-left"></i>
+          <span>Toggle Sidebar</span>
+        </button>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-#7386D5;">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, FileField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, FileField, SubmitField, TextAreaField, DateField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError 
 
 
@@ -26,6 +26,7 @@ class CommentForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=3, max=15)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     text = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
+    date = DateField('Posted Date', format='%d-%m-%Y')
     submit = SubmitField('POST COMMENT')
 
 class ReplyForm(FlaskForm):

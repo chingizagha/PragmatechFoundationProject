@@ -3,7 +3,7 @@ from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment
-from engineers.forms import ContactForm, QuoteForm
+from engineers.forms import ContactForm, QuoteForm, CommentForm
 
 
 
@@ -77,7 +77,18 @@ def single(id):
     address = Address.query.all()
     comment = Comment.query.all()
     blog = Blog.query.get_or_404(id)
-    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment)
+    form = CommentForm()
+    if form.validate_on_submit():
+        comment = Comment(
+            author = form.name.data,
+            email = form.email.data,
+            text = form.text.data,
+            timestamp = form.date.data
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('single'))
+    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form)
 
 # ADMIN ===============================
 
@@ -190,7 +201,7 @@ def worker_update(id):
     
 @app.route('/admin/worker-delete/<int:id>', methods=['GET', 'POST'])
 def worker_delete(id):
-    worker = Blog.query.get_or_404(id)
+    worker = Worker.query.get_or_404(id)
     db.session.delete(worker)
     db.session.commit()
     return redirect(url_for('worker_list'))

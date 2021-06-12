@@ -216,23 +216,27 @@
                            
                             <form action="">
                                 <div class="form-comment">
-                                    <label for="name">Name*</label>
-                                    <input type="text" id="name" name="name" class="form-comment-input">
+                                    {{ form.hidden_tag() }}
+                                    <!-- <label for="name">Name*</label>
+                                    <input type="text" id="name" name="name" class="form-comment-input"> -->
+                                    {{form.name.label}}
+                                    {{form.name(class="form-comment-input")}}
                                 </div>
                                 <div class="form-comment">
-                                    <label for="email">Email*</label>
-                                    <input type="email" id="email" name="email" class="form-comment-input">
-                                </div>
-                                <!-- <div class="form-comment">
-                                    <label for="website">Website</label>
-                                    <input type="url" id="website" name="website" class="form-comment-input">
-                                </div> -->
-                                <div class="form-comment">
-                                    <label for="message">Message</label>
-                                    <textarea name="" id="message" cols="30" rows="10" class="form-comment-input"></textarea>
+                                    <!-- <label for="email">Email*</label>
+                                    <input type="email" id="email" name="email" class="form-comment-input"> -->
+                                    {{form.email.label}}
+                                    {{form.email(class="form-comment-input")}}
                                 </div>
                                 <div class="form-comment">
-                                    <input type="submit" value="POST COMMENT" class="btn-orange-contact comment-button">
+                                    <!-- <label for="message">Message</label>
+                                    <textarea name="" id="message" cols="30" rows="10" class="form-comment-input"></textarea> -->
+                                    {{form.text.label}}
+                                    {{form.text(cols="30", rows="10", class="form-comment-input")}}
+                                </div>
+                                <div class="form-comment">
+                                    <!-- <input type="submit" value="POST COMMENT" class="btn-orange-contact comment-button"> -->
+                                    {{form.submit(class="btn-orange-contact comment-button")}}
                                 </div>
                             </form>
                         </div>

@@ -43,16 +43,16 @@
 
         <div class="block-projects">
             <div class="container max-w-1140 margin-0-auto">
-                <div class="row d-flex">
+                <div class="row d-flex f-wrap">
                     {% for project in pro_category %}
                     <div class="col-3">
-                        <div class="pro-left project">
+                        <div class="pro-left project p-rel">
 
                             <figure class="fig-pro fig-pro-left">
                                 <img src="static/uploads/{{project.image}}" alt="">
                             </figure>
     
-                            <div class="pro-overlay"></div>
+                                <div class="pro-overlay p-abs"></div>
     
                             <div class="pro-item">
                                 <a href="#">
