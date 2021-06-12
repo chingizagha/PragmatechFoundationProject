@@ -274,12 +274,30 @@
 
                 <div class="row row-bottom p-rel">
 
-                    <div class="slider-block-second">
-                        <div class="slider-line-second">
-                            {% for project in pro_category %}
-                            <div class="pro-left project">
-                                <figure class="fig-pro fig-pro-left">
-                                    <img src="static/uploads/{{project.image}}">
+                    <div class="swiper-container mySwiper slider-block-second">
+                        
+                            <div class="next direction">
+                                <span>
+                                    <i class="flaticon-right-arrow"></i>
+                                </span>
+                            </div>
+
+                            <div class="prev direction">
+                                <span>
+                                    <i class="flaticon-left-arrow"></i>
+                                </span>
+                            </div>
+
+                            
+                            
+                            
+        
+                    
+                        <div class="swiper-wrapper slider-line-second">
+                        {% for pro in pro_category %}
+                            <div class="swiper-slide project">
+                                <figure class="fig-pro">
+                                    <img src="static/uploads/{{pro.image}}">
                                 </figure>
 
                                 <div class="pro-overlay"></div>
@@ -288,40 +306,64 @@
                                 <div class="pro-item">
                                     <a href="#">
                                         <span class="span-orange">
-                                            {{project.category}}
+                                            {{pro.category}}
                                         </span>
 
                                         <h2 class="color-fff">
-                                            {{project.name}}
+                                            {{pro.name}}
                                         </h2>
                                     </a>
                                 </div>
                             </div>
                             {% endfor %}
-
-                            
-
-                        </div>
-                    </div>
-
-                    <div class="pro-arrow">
-                        <div class="next direction">
-                            <span>
-                                <i class="flaticon-right-arrow"></i>
-                            </span>
                         </div>
 
-                        <div class="prev direction">
-                            <span>
-                                <i class="flaticon-left-arrow"></i>
-                            </span>
-                        </div>
-                    </div>
+                        
+                         
+                      </div>
+                      <!-- <div class="point">
+                        <span class="dot"></span>
+                        <span class="dot dot-active"></span>
+                      </div> -->
+                        
+                            <div class="swiper-pagination point"></div>
+                    
+                      
 
-                    <div class="pro-point d-flex">
-                        <span class="point-ora point"></span>
-                        <span class="point-whi point"></span>
-                    </div>
+                            <!-- <div class="pro-point d-flex">
+                                <span class="point-ora point"></span>
+                                <span class="point-whi point"></span>
+                            </div> -->
+                      <!-- <div class="swiper-pagination"></div> -->
+                      
+                      <!-- <div class="pro-right project">
+
+                                <figure class="fig-pro fig-pro-right">
+                                    <img src="img/works_3.jpg">
+                                </figure>
+
+                                <div class="pro-overlay"></div>
+
+
+                                <div class="pro-item">
+                                    <a href="#">
+                                        <span class="span-orange">
+                                            FACTORY
+                                        </span>
+
+                                        <h2 class="color-fff">
+                                            Building Refinery
+                                        </h2>
+                                    </a>
+                                </div>
+                            </div>-->
+                    </div> 
+
+                     
+
+                    
+
+
 
 
 
@@ -475,53 +517,53 @@
         });
     
         // Second Slider ===============================
-        let next2 = document.querySelector('.next');
-        let prev2 = document.querySelector('.prev');
-        let sliderLine2 = document.querySelector(".slider-line-second");
-        let carousel2 = document.querySelector('.slider-block-second');
+        // let next2 = document.querySelector('.next');
+        // let prev2 = document.querySelector('.prev');
+        // let sliderLine2 = document.querySelector(".slider-line-second");
+        // let carousel2 = document.querySelector('.slider-block-second');
     
-        let direction2;
+        // let direction2;
     
-        next2.addEventListener('click', () => {
+        // next2.addEventListener('click', () => {
     
-            direction2 = -1;
-            carousel2.style.justifyContent = 'flex-start'
-            sliderLine2.style.transform = 'translate(-380px)';
-            sliderLine2.style.right = '0px'
-            sliderLine2.style.left = '-15px'
-        })
+        //     direction2 = -1;
+        //     carousel2.style.justifyContent = 'flex-start'
+        //     sliderLine2.style.transform = 'translate(-380px)';
+        //     sliderLine2.style.right = '0px'
+        //     sliderLine2.style.left = '-15px'
+        // })
     
-        prev2.addEventListener('click', () => {
+        // prev2.addEventListener('click', () => {
     
-            if (direction2 == -1) {
-                sliderLine2.appendChild(sliderLine2.firstElementChild);
-                direction2 = 1;
-            }
+        //     if (direction2 == -1) {
+        //         sliderLine2.appendChild(sliderLine2.firstElementChild);
+        //         direction2 = 1;
+        //     }
             
     
-            carousel2.style.justifyContent = 'flex-end';
-            sliderLine2.style.transform = 'translate(380px)';
-            sliderLine2.style.right = '0px';
-            sliderLine2.style.left = '15px';
-        })
+        //     carousel2.style.justifyContent = 'flex-end';
+        //     sliderLine2.style.transform = 'translate(380px)';
+        //     sliderLine2.style.right = '0px';
+        //     sliderLine2.style.left = '15px';
+        // })
     
-        sliderLine2.addEventListener('transitionend', function() {
+        // sliderLine2.addEventListener('transitionend', function() {
     
-            if (direction2 == 1) {
-                sliderLine2.prepend(sliderLine2.lastElementChild);
-            }
-            else {
-                sliderLine2.appendChild(sliderLine2.firstElementChild);
-            }
+        //     if (direction2 == 1) {
+        //         sliderLine2.prepend(sliderLine2.lastElementChild);
+        //     }
+        //     else {
+        //         sliderLine2.appendChild(sliderLine2.firstElementChild);
+        //     }
     
     
-            sliderLine2.style.transition = 'none';
-            sliderLine2.style.transform = 'translate(0%)';
-            setTimeout(function() {
-                sliderLine2.style.transition = 'all 0.5s';
-            })
+        //     sliderLine2.style.transition = 'none';
+        //     sliderLine2.style.transform = 'translate(0%)';
+        //     setTimeout(function() {
+        //         sliderLine2.style.transition = 'all 0.5s';
+        //     })
     
-        });
+        // });
     
     
         window.addEventListener('scroll', function () {
@@ -529,9 +571,30 @@
             header.style.transition = "all 0.3s ease";
             header.classList.toggle('navbar-fixed', window.scrollY >= 132);
         })
-    
-    
     </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 1,
+      autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      loop: true,
+      loopFillGroupWithBlank: false,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".next",
+        prevEl: ".prev",
+      },
+    });
+  </script>
 {% endblock %}
 
     

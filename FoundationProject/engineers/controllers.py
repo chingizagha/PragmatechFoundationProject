@@ -2,7 +2,7 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment
 from engineers.forms import ContactForm, QuoteForm
 
 
@@ -75,8 +75,9 @@ def contact():
 @app.route('/single/<int:id>')
 def single(id):
     address = Address.query.all()
+    comment = Comment.query.all()
     blog = Blog.query.get_or_404(id)
-    return render_template('app/single-blog.html', blog=blog, address=address)
+    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment)
 
 # ADMIN ===============================
 

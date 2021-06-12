@@ -20,3 +20,19 @@ class QuoteForm(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()], render_kw={"placeholder": "Subject"})
     message = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)], render_kw={"placeholder": "Message"})
     submit = SubmitField('SEND MESSAGE')
+
+class CommentForm(FlaskForm):
+
+    name = StringField('Name', validators=[DataRequired(), Length(min=3, max=15)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    text = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
+    submit = SubmitField('POST COMMENT')
+
+class ReplyForm(FlaskForm):
+
+    name = StringField('Name', validators=[DataRequired(), Length(min=3, max=15)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    reply = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
+    submit = SubmitField('POST COMMENT')
+
+    

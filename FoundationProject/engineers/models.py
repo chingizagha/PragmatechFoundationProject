@@ -87,3 +87,20 @@ class Comment(db.Model):
     mail = db.Column(db.String(32), nullable=False)
     text = db.Column(db.String(140), nullable=False)
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
+
+# class Comment(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     body = db.Column(db.Text)
+#     body_html = db.Column(db.Text)
+#     path = db.Column(db.Text, index=True)
+#     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+#     disabled = db.Column(db.Boolean)
+#     post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+#     parent_id = db.Column(db.Integer,db.ForeignKey('comment.id'))
+#     replies = db.relationship('Comment', backref = db.backref('parent',remote_side=[id]),        lazy='dynamic')
+#      def save(self):
+#        db.session.add(self)
+#        db.session.commit()
+#        prefix = self.parent.path + '.' if self.parent else ''
+#        self.path = prefix + '{:0{}d}'.format(self.id, self._N)
+#        db.session.commit()    
