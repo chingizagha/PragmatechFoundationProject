@@ -12,6 +12,8 @@ class Blog(db.Model):
     short_desc = db.Column(db.String(100), nullable=False)
     desc = db.Column(db.Text, nullable=False)
     category = db.Column(db.Integer, db.ForeignKey('blogcategory.id'), nullable=False)
+    comment = db.relationship('Comment', backref='blog', lazy=True)
+
 
     def __repr__(self):
         return f'Blog: {self.title}'
@@ -87,6 +89,7 @@ class Comment(db.Model):
     mail = db.Column(db.String(32), nullable=False)
     text = db.Column(db.String(140), nullable=False)
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
+    blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
 
 # class Comment(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
