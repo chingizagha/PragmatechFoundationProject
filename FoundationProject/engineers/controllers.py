@@ -2,7 +2,7 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment, Reply, Card
 from engineers.forms import ContactForm, QuoteForm, CommentForm
 
 
@@ -12,6 +12,7 @@ from engineers.forms import ContactForm, QuoteForm, CommentForm
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     address = Address.query.all()
+    card = Card.query.all()
     blogs = Blog.query.all()[-3:]
     testis = Testi.query.all()[-2:]
     pro_category = Project.query.all()[-4:]
@@ -27,7 +28,7 @@ def index():
         db.session.add(quote)
         db.session.commit()
         return redirect(url_for('index'))
-    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category, form=form, address=address) 
+    return render_template('app/index.html', blogs=blogs, testis=testis, pro_category=pro_category, form=form, address=address, card=card) 
 
 @app.route('/about')
 def about():
@@ -102,8 +103,10 @@ def contact():
 def single(id):
     address = Address.query.all()
     comment = Comment.query.filter_by(blog_id=id)
+    reply = Reply.query.filter_by(comment_id=id)
     blog = Blog.query.get_or_404(id)
     form = CommentForm()
+    category = BlogCategory.query.all()
     if form.validate_on_submit():
         comment = Comment(
             author = form.name.data,
@@ -115,7 +118,18 @@ def single(id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('single', id=id))
-    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form)
+    # elif form.validate_on_submit():
+    #     reply = Reply(
+    #         author = form.name.data,
+    #         mail = form.email.data,
+    #         text = form.text.data,
+    #         timestamp = form.date.data,
+    #         comment_id = id
+    #     )
+    #     db.session.add(reply)
+    #     db.session.commit()
+    #     return redirect(url_for('single', id=id))
+    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, reply=reply)
 
 
     # blog = Blog.query.get_or_404(id)
@@ -158,6 +172,8 @@ def navbar():
 
 # HOME SECTION =============================
 
+    # QUOTE SECTION
+
 @app.route('/admin/quote')
 def quote_info():
     quotes = Quote.query.all()
@@ -171,6 +187,8 @@ def quote_delete(id):
     return redirect(url_for('quote_info'))
 
 # ==========
+
+    # ADDRESS SECTION
 
 @app.route('/admin/address')
 def address_info():
@@ -190,13 +208,64 @@ def address_add():
         return redirect(url_for('address_info'))
     return render_template('admin/address-add.html')
 
-@app.route('/admin/address-add/<int:id>', methods=['GET', 'POST'])
+@app.route('/admin/address-update/<int:id>', methods=['GET', 'POST'])
+def address_update(id):
+    address = Address.query.get_or_404(id)
+    if request.method == 'POST':
+        address.icon = request.form['icon']
+        address.desc = request.form['desc']
+        address.big_desc = request.form['big_desc']
+        db.session.commit()
+        return redirect(url_for('address_info'))
+    return render_template('admin/address-update.html', address=address)
+
+@app.route('/admin/address-delete/<int:id>', methods=['GET', 'POST'])
 def address_delete(id):
     address = Address.query.get_or_404(id)
     db.session.delete(address)
     db.session.commit()
     return redirect(url_for('address_info'))
-    
+
+# ==========
+
+    # CARD SECTION
+
+@app.route('/admin/card')
+def card_info():
+    card = Card.query.all()
+    return render_template('admin/card.html', card=card)
+
+@app.route('/admin/card-add', methods=['GET', 'POST'])
+def card_add():
+    if request.method == 'POST':
+        card = Card(
+            icon = request.form['icon'],
+            title = request.form['title'],
+            desc = request.form['desc']
+        )
+        db.session.add(card)
+        db.session.commit()
+        return redirect(url_for('card_info'))
+    return render_template('admin/card-add.html')
+
+@app.route('/admin/card-update/<int:id>', methods=['GET', 'POST'])
+def card_update(id):
+    card = Card.query.get_or_404(id)
+    if request.method == 'POST':
+        card.icon = request.form['icon']
+        card.desc = request.form['title']
+        card.big_desc = request.form['desc']
+        db.session.commit()
+        return redirect(url_for('card_info'))
+    return render_template('admin/card-update.html', card=card)
+
+@app.route('/admin/card-delete/<int:id>', methods=['GET', 'POST'])
+def card_delete(id):
+    card = Card.query.get_or_404(id)
+    db.session.delete(card)
+    db.session.commit()
+    return redirect(url_for('card_info'))
+
 
 
 # =======================================
@@ -273,7 +342,6 @@ def blog_add():
             title = request.form['title'],
             name = request.form['name'],
             image = filename,
-            short_desc = request.form['short-desc'],
             desc = request.form['desc'],
             category = request.form['category']
         )
@@ -292,7 +360,6 @@ def blog_update(id):
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         blogs.title = request.form['title']
         blogs.name = request.form['name']
-        blogs.short_des = request.form['short-desc']
         blogs.desc = request.form['desc']
         blogs.category = request.form['category']
         blogs.image = filename

@@ -45,7 +45,7 @@
             <div class="row d-flex">
                 <div class="col-8 single-blog-text pt-5rem p-r-l-15px">
                     <div class="section-p">
-                        {{blog.desc}}
+                        {{blog.desc|safe}}
                     </div>
 
 
@@ -243,13 +243,16 @@
                     <div class="sidebox">
                         <div class="sidebox-categories">
                             <h3>Categories</h3>
+                            {% for category in category %}
                             <ul>
                                 <li class="p-rel">
-                                    <a href="#">Creatives
-                                        <span class="p-abs color-ccc ">(12)</span>
+                                    <a href="#">{{category.title}}
+                                        <span class="p-abs color-ccc ">()</span>
                                     </a>
                                 </li>
-                                <li class="p-rel">
+                            </ul>
+                            {% endfor %}
+                                <!-- <li class="p-rel">
                                     <a href="#">News
                                         <span class="p-abs color-ccc ">(22)</span>
                                     </a>
@@ -268,8 +271,8 @@
                                     <a href="#">Web Development
                                         <span class="p-abs color-ccc ">(14)</span>
                                     </a>
-                                </li>
-                            </ul>
+                                </li> -->
+                            
                         </div>
                         
                     </div>

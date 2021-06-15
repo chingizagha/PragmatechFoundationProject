@@ -29,11 +29,11 @@ class CommentForm(FlaskForm):
     date = DateField('Posted Date', format='%d-%m-%Y')
     submit = SubmitField('POST COMMENT')
 
-class ReplyForm(FlaskForm):
+# class ReplyForm(FlaskForm):
 
-    name = StringField('Name', validators=[DataRequired(), Length(min=3, max=15)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    reply = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
-    submit = SubmitField('POST COMMENT')
+#     name = StringField('Name', validators=[DataRequired(), Length(min=3, max=15)])
+#     email = StringField('Email', validators=[DataRequired(), Email()])
+#     reply = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
+#     submit = SubmitField('POST COMMENT')
 
     

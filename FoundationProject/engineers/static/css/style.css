@@ -1,6 +1,12 @@
 @import "grid.css";
 @import "utilities.css";
 
+.flashes {
+    background-color: #f89406;
+      border-color: #e96506;
+      color: #ffffff;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

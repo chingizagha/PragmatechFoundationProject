@@ -9,7 +9,6 @@ class Blog(db.Model):
     title = db.Column(db.String(80), nullable=False)
     name = db.Column(db.String(20), nullable=False)
     image = db.Column(db.String(20), default='uploads/default.png')
-    short_desc = db.Column(db.String(100), nullable=False)
     desc = db.Column(db.Text, nullable=False)
     category = db.Column(db.Integer, db.ForeignKey('blogcategory.id'), nullable=False)
     comment = db.relationship('Comment', backref='blog', lazy=True)
@@ -83,13 +82,38 @@ class Address(db.Model):
     desc = db.Column(db.String(50), nullable=False)
     big_desc = db.Column(db.String(75), nullable=False)
 
+class Card(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    icon = db.Column(db.String(20), nullable=True)
+    title = db.Column(db.String(50), nullable=False)
+    desc = db.Column(db.String(75), nullable=False)
+
+class Icon(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    icon = db.Column(db.String(20), nullable=True)
+    title = db.Column(db.String(50), nullable=False)
+    desc = db.Column(db.String(150), nullable=False)
+
 class Comment(db.Model):
+
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(32), nullable=False)
     mail = db.Column(db.String(32), nullable=False)
     text = db.Column(db.String(140), nullable=False)
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
     blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
+    reply_comment = db.relationship('Reply', backref='comment', lazy=True)
+
+class Reply(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True)
+    author = db.Column(db.String(32), nullable=False)
+    mail = db.Column(db.String(32), nullable=False)
+    text = db.Column(db.String(140), nullable=False)
+    comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'), nullable=False)
+
 
 # class Comment(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)

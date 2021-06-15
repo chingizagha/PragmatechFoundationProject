@@ -19,10 +19,12 @@
                {% for add in address %}
               <tr>
                 <th scope="row">{{add.id}}</th>
-                <td><i class="{{add.icon}} flaticon-placeholder"></i></td>
+                <td><i class="{{add.icon}}"></i></td>
                 <td>{{add.desc}}</td>
                 <td>{{add.big_desc}}</td>
-                <td><a href="{{url_for('address_delete', id=add.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+                <td><a href="{{url_for('address_update', id=add.id)}}"  ><i class="fas fa-edit"></i>Update</a></td>
+                <td><a href="{{url_for('address_delete', id=add.id)}}" onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             
+              </tr>
               {% endfor %}
             </tbody>
           </table>

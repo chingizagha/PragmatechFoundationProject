@@ -12,11 +12,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/index">Home<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -39,10 +37,10 @@
 
       <!-- <p>The Providers</p> -->
       <li class="active">
-        <a href="/admin" data-toggle="collapse" aria-expanded="false" class="">Home</a>
+        <a href="/admin"><i class="fas fa-home admin-icon"></i>Home</a>
       </li>
       <li>
-        <a href="#layoutSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Layout</a>
+        <a href="#layoutSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-layer-group admin-icon"></i>Layout</a>
         <ul class="collapse list-unstyled" id="layoutSubmenu">
           <li>
             <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Projects</a>
@@ -79,13 +77,23 @@
                   <a href="/admin/address-add">Add Address</a>
                 </li>
               </ul>
-            
+          </li>
+          <li>
+            <a href="#cardSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Card</a>
+              <ul class="collapse list-unstyled" id="cardSubmenu">
+                <li>
+                  <a href="/admin/card">Card</a>
+                </li>
+                <li>
+                  <a href="/admin/card-add">Add Card</a>
+                </li>
+              </ul>
           </li>
         </ul>
       </li>
 
       <li>
-        <a href="#blogSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Blog</a>
+        <a href="#blogSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-align-left admin-icon"></i>Blog</a>
         <ul class="collapse list-unstyled" id="blogSubmenu">
           <li>
             <a href="/admin/blog">Blog</a>
@@ -102,10 +110,10 @@
       </li>
 
       <li>
-        <a href="#workerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Worker</a>
+        <a href="#workerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-building admin-icon"></i>Worker</a>
         <ul class="collapse list-unstyled" id="workerSubmenu">
           <li>
-            <a href="/admin/worker">Worker</a>
+            <a href="/admin/worker"></i>Worker</a>
           </li>
           <li>
             <a href="/admin/worker-add">Add Worker</a>
@@ -114,7 +122,7 @@
       </li>
 
       <li>
-        <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Contact</a>
+        <a href="#contactSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-address-book admin-icon"></i>Contact</a>
         <ul class="collapse list-unstyled" id="contactSubmenu">
           <li>
             <a href="/admin/contact">Contact</a>

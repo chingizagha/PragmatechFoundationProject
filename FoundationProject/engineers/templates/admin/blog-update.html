@@ -15,13 +15,13 @@
                     <label class="form-label" for="typeText">Name</label>
                     <input type="text" id="typeText" class="form-control" name="name">
                 </div>
-                <div class="form-outline">
+                <!-- <div class="form-outline">
                     <label class="form-label" for="typeText">Short Description</label>
                     <input type="text" id="typeText" class="form-control" name="short-desc">
-                </div>
-                <div class="form-outline">
+                </div> -->
+                <div class="form-outline"><br>
                     <label class="form-label" for="typeText">Description</label>
-                    <input type="text" id="typeText" class="form-control" name="desc">
+                    <textarea type="text" id="typeText" class="form-control" name="desc"></textarea>
                 </div><br>
                 <select class="form-select" name='category'>
                     {% for category in blog_category %}
@@ -36,7 +36,13 @@
             </div>
         </form>
     </div>
-    
 </div>
+
+
+<script>
+    tinymce.init({
+    selector: 'textarea'
+  });
+</script>
 
 {% endblock %}

@@ -69,22 +69,23 @@
                 </div>
 
                 <div class="row-2 d-flex">
+                    {% for card in card %}
                     <div class="col-3">
                         <div class="do-box-1 d-flex">
                             <span class="triangle-orange"></span>
-                            <span class="number">01</span>
+                            <span class="number">0{{card.id}}</span>
                             <div class="do-box-1-icon">
-                                <i class="flaticon-engineer"></i>
+                                <i class="{{card.icon}}"></i>
                             </div>
                             <div class="do-box-1-text">
-                                <h3>Professional Team</h3>
-                                <p class="ff-mulish">Gravida sodales condimentum pellen tesq accumsan orci quam sagittis
-                                    sapie</p>
+                                <h3>{{card.title}}</h3>
+                                <p class="ff-mulish">{{card.desc}}</p>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="col-3">
+                    <!-- <div class="col-3">
                         <div class="do-box-1 d-flex">
                             <span class="triangle-orange"></span>
                             <span class="number">02</span>
@@ -97,9 +98,9 @@
                                     sapie</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-3">
+                    <!-- <div class="col-3">
                         <div class="do-box-1 d-flex">
                             <span class="triangle-orange"></span>
                             <span class="number">03</span>
@@ -112,9 +113,9 @@
                                     sapie</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-3">
+                    <!-- <div class="col-3">
                         <div class="do-box-1 d-flex">
                             <span class="triangle-orange"></span>
                             <span class="number">04</span>
@@ -127,7 +128,7 @@
                                     sapie</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

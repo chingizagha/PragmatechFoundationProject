@@ -1,0 +1,36 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Icon</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for card in card %}
+              <tr>
+                <th scope="row">{{card.id}}</th>
+                <td><i class="{{card.icon}}"></i></td>
+                <td>{{card.title}}</td>
+                <td>{{card.desc}}</td>
+                <td><a href="{{url_for('card_update', id=card.id)}}"  ><i class="fas fa-edit"></i>Update</a></td>
+                <td><a href="{{url_for('card_delete', id=card.id)}}" onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
