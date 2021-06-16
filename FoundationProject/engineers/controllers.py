@@ -2,7 +2,7 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment, Reply, Card
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment, Card
 from engineers.forms import ContactForm, QuoteForm, CommentForm
 
 
@@ -102,10 +102,11 @@ def contact():
 @app.route('/single/<id>', methods=['GET', 'POST'])
 def single(id):
     address = Address.query.all()
-    comment = Comment.query.filter_by(blog_id=id)
-    reply = Reply.query.filter_by(comment_id=id)
+    comment = Comment.query.filter_by(blog_id=id)   
     blog = Blog.query.get_or_404(id)
     form = CommentForm()
+    comment_count = Blog.query.filter(Comment.blog_id==Blog.comment).count()
+    category_count = BlogCategory.query.filter(Blog.category == BlogCategory.category).count()
     category = BlogCategory.query.all()
     if form.validate_on_submit():
         comment = Comment(
@@ -118,18 +119,7 @@ def single(id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('single', id=id))
-    # elif form.validate_on_submit():
-    #     reply = Reply(
-    #         author = form.name.data,
-    #         mail = form.email.data,
-    #         text = form.text.data,
-    #         timestamp = form.date.data,
-    #         comment_id = id
-    #     )
-    #     db.session.add(reply)
-    #     db.session.commit()
-    #     return redirect(url_for('single', id=id))
-    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, reply=reply)
+    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, comment_count=comment_count, category_count=category_count)
 
 
     # blog = Blog.query.get_or_404(id)
