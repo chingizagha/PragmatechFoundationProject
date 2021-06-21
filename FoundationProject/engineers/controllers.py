@@ -34,7 +34,8 @@ def index():
 def about():
     address = Address.query.all()
     workers = Worker.query.all()
-    return render_template('app/about.html', workers=workers, address=address)
+    card = Card.query.all()
+    return render_template('app/about.html', workers=workers, address=address, card=card)
 
 @app.route('/projects')
 def project():
@@ -91,7 +92,7 @@ def single(id):
         db.session.add(comment)
         db.session.commit()
         return redirect(url_for('single', id=id))
-    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, comment_count=comment_count, category_count=category_count)
+    return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, comment_count=comment_count, category_count=category_count, )
 
 # ADMIN ===============================
 
@@ -287,6 +288,9 @@ def blog_add():
         )
         db.session.add(blog)
         db.session.commit()
+        tag = Tag.query.filter(Tag.id == Blog.id).all()[-1]
+        tag.blogs.append(blog)
+        db.session.commit()
         return redirect(url_for('blog_list'))
     return render_template('admin/blog-add.html', blog_category=blog_category)
 
@@ -333,9 +337,22 @@ def blog_cat_add():
 @app.route('/admin/blog-cat-delete/<int:id>', methods=['GET', 'POST'])
 def blog_cat_delete(id):
     blog_category = BlogCategory.query.get_or_404(id)
+    blog = Blog.query.get_or_404(id)
     db.session.delete(blog_category)
+    db.session.delete(blog)
     db.session.commit()
     return redirect(url_for('blog_cat_list'))
+
+@app.route('/admin/blog-cat-update/<int:id>', methods=['GET', 'POST'])
+def blog_cat_update(id):
+    blog_category = BlogCategory.query.get_or_404(id)
+    blogs = Blog.query.get_or_404(id)
+    if request.method == 'POST':
+        blog_category.title = request.form['title']
+        blogs.category.title == request.form['title']
+        db.session.commit()
+        return redirect(url_for('blog_list'))
+    return render_template('admin/blog-cat-update.html', blog_category=blog_category)
 
 @app.route('/tags/<int:id>')
 def tag_detail(id):
@@ -353,7 +370,7 @@ def tag_add():
         db.session.add(tag)
         db.session.commit()
         return redirect(url_for('blog_add'))
-    return render_template('tag-add.html', form=form)
+    return render_template('admin/tag-add.html', form=form)
    
 
 
@@ -426,7 +443,9 @@ def pro_cat_add():
 @app.route('/admin/pro-cat-delete/<int:id>', methods=['GET', 'POST'])
 def pro_cat_delete(id):
     pro_category = ProCategory.query.get_or_404(id)
+    project = Project.query.get_or_404(id)
     db.session.delete(pro_category)
+    db.session.delete(project)
     db.session.commit()
     return redirect(url_for('pro_cat_list'))
 # =======================================

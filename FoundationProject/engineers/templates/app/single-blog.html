@@ -52,8 +52,9 @@
                     <div class="pt-3rem ff-mulish single-blog-categories">
                        
                         <p>
-                            Category: <a href="#">{{blog.category}}</a>, Tags: <a href="#">#html</a>, <a
-                                href="#">#trends</a>
+                            
+                            Category: <a href="#">{{blog.category}}</a>, {% for tag in blog.tag %} Tags: <a href="{{ url_for('tag_detail', id=tag.id) }}">{{ tag }}</a>
+                            {% endfor %}
                         </p>
                 
                     </div>

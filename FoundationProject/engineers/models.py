@@ -11,8 +11,8 @@ class Blog(db.Model):
     image = db.Column(db.String(20), default='uploads/default.png')
     desc = db.Column(db.Text, nullable=False)
     category = db.Column(db.Integer, db.ForeignKey('blogcategory.id'), nullable=False)
-    comment = db.relationship('Comment', backref='blog', lazy=True, cascade='all,delete')
-    tag = db.relationship('Tag', secondary='blogs_tags', backref=db.backref('blogs', lazy='dynamic'))
+    comment = db.relationship('Comment', backref='blog', lazy=True, cascade='all, delete')
+    tag = db.relationship('Tag', secondary='blogs_tags', backref=db.backref('blog', lazy='dynamic'))
 
 
     def __repr__(self):
@@ -24,7 +24,7 @@ class BlogCategory(db.Model):
     __tablename__ = 'blogcategory'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
-    category = db.relationship(Blog, backref='blogcategories', lazy=True, cascade='all,delete')
+    category = db.relationship('Blog', backref='blogcategories', lazy=True, cascade='all, delete')
 
     def __repr__(self):
         return f'Category: {self.title}'
@@ -111,6 +111,7 @@ class Comment(db.Model):
     blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
 
 class Tag(db.Model):
+    
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(20), nullable=False)
     db.column = db.relationship(Blog, backref='tags', lazy=True)

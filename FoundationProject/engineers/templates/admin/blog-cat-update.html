@@ -1,0 +1,20 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <form action="" method="post">
+            <div class="container">
+                <div class="form-outline">
+                    <label class="form-label" for="typeText">Title</label>
+                    <input type="text" id="typeText" class="form-control" name="title" value="{{blog_category.title}}">
+                </div><br>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

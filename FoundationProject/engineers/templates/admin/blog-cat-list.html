@@ -12,6 +12,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,6 +20,7 @@
                     <tr>
                         <th scope="row">{{category.id}}</th>
                         <td>{{category.title}}</td>
+                        <td><a href="{{url_for('blog_cat_update', id=category.id)}}"><i class="fas fa-edit"></i>Update</a></td>
                         <td><a href="{{url_for('blog_cat_delete', id=category.id)}}" onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>
                     </tr>
                     {% endfor %}

@@ -86,112 +86,6 @@
                         </div>
                     </div>
                     {% endfor %}
-
-                    <!-- <div class="col-3 padding-side">
-
-                        <div class="worker">
-                            <figure class="about-fig">
-                                <img src="{{ url_for('static', filename='img/person_2.jpg')}}" alt="">
-
-                                <div class="social-icons">
-                                    <a href="#">
-
-                                        <i class="fab fa-facebook-f"></i>
-
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fab fa-twitter"></i>
-
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fab fa-linkedin-in"></i>
-
-                                    </a>
-                                </div>
-                            </figure>
-
-                            <div class="worker-info txt-algn-cnt">
-                                <h3>
-                                    Peter Silk
-                                </h3>
-                                <span class="span-orange">
-                                    Engineer
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-3 padding-side">
-
-                        <div class="worker">
-                            <figure class="about-fig">
-                                <img src="{{ url_for('static', filename='img/person_3.jpg')}}" alt="">
-
-                                <div class="social-icons">
-                                    <a href="#">
-
-                                        <i class="fab fa-facebook-f"></i>
-
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fab fa-twitter"></i>
-
-                                    </a>
-                                    <a href="#">
-
-                                        <i class="fab fa-linkedin-in"></i>
-
-                                    </a>
-                                </div>
-                            </figure>
-
-                            <div class="worker-info txt-algn-cnt">
-                                <h3>
-                                    Evan Brook
-                                </h3>
-                                <span class="span-orange">
-                                    Engineer
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-3 padding-side">
-                        <div class="worker">
-                            <figure class="about-fig">
-                                <img src="{{ url_for('static', filename='img/person_4.jpg')}}" alt="">
-
-                                <div class="social-icons">
-                                    <a href="#">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="#">
-                                        <span>
-                                            <i class="fab fa-twitter"></i>
-                                        </span>
-                                    </a>
-                                    <a href="#">
-                                        <span>
-                                            <i class="fab fa-linkedin-in"></i>
-                                        </span>
-                                    </a>
-                                </div>
-                            </figure>
-
-                            <div class="worker-info txt-algn-cnt">
-                                <h3>
-                                    Kyle Lucas
-                                </h3>
-                                <span class="span-orange">
-                                    Engineer
-                                </span>
-                            </div>
-                        </div>
-
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -215,65 +109,21 @@
                 </div>
 
                 <div class="row-2 d-flex">
+                    {% for card in card %}
                     <div class="col-3">
                         <div class="do-box-1 d-flex">
                             <span class="triangle-orange-about"></span>
-                            <span class="number">01</span>
+                            <span class="number">0{{card.id}}</span>
                             <div class="do-box-1-icon">
-                                <i class="flaticon-engineer"></i>
+                                <i class="{{card.icon}}"></i>
                             </div>
                             <div class="do-box-1-text">
-                                <h3>Professional Team</h3>
-                                <p class="ff-mulish">Gravida sodales condimentum pellen tesq accumsan orci quam sagittis
-                                    sapie</p>
+                                <h3>{{card.title}}</h3>
+                                <p class="ff-mulish">{{card.desc}}</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-3">
-                        <div class="do-box-1 d-flex">
-                            <span class="triangle-orange-about"></span>
-                            <span class="number">02</span>
-                            <div class="do-box-1-icon">
-                                <i class="flaticon-compass"></i>
-                            </div>
-                            <div class="do-box-1-text">
-                                <h3>Great Ideas</h3>
-                                <p class="ff-mulish">Gravida sodales condimentum pellen tesq accumsan orci quam sagittis
-                                    sapie</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div class="do-box-1 d-flex">
-                            <span class="triangle-orange-about"></span>
-                            <span class="number">03</span>
-                            <div class="do-box-1-icon">
-                                <i class="flaticon-oil-platform"></i>
-                            </div>
-                            <div class="do-box-1-text">
-                                <h3>Quality Building</h3>
-                                <p class="ff-mulish">Gravida sodales condimentum pellen tesq accumsan orci quam sagittis
-                                    sapie</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-3">
-                        <div class="do-box-1 d-flex">
-                            <span class="triangle-orange-about"></span>
-                            <span class="number">04</span>
-                            <div class="do-box-1-icon">
-                                <i class="flaticon-crane"></i>
-                            </div>
-                            <div class="do-box-1-text">
-                                <h3>Quality Works</h3>
-                                <p class="ff-mulish">Gravida sodales condimentum pellen tesq accumsan orci quam sagittis
-                                    sapie</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
