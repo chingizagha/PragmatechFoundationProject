@@ -2,7 +2,7 @@ from engineers import db
 from datetime import datetime
 
 
-
+'''Blog model contains the blogs of the site and is related to the BlogCategory model'''
 class Blog(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +18,8 @@ class Blog(db.Model):
     def __repr__(self):
         return f'Blog: {self.title}'
 
+'''BlogCategory model is in relationship 
+   with Blog model and contains category types'''
 class BlogCategory(db.Model):
     __tablename__ = 'blogcategory'
     id = db.Column(db.Integer, primary_key=True)
@@ -26,7 +28,8 @@ class BlogCategory(db.Model):
 
     def __repr__(self):
         return f'Category: {self.title}'
-
+    
+'''Testi model contains the testimonials of the site'''
 class Testi(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -34,6 +37,7 @@ class Testi(db.Model):
     image = db.Column(db.String(20))
     desc = db.Column(db.Text, nullable=False)
 
+'''Project model contains the projects of the site and is related to the ProjectCategory model'''
 class Project(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -41,13 +45,15 @@ class Project(db.Model):
     image = db.Column(db.String(20), default='uploads/default.jpeg')
     category = db.Column(db.Integer, db.ForeignKey('procategory.id'), nullable=False)
 
+'''ProCategory model is in relationship 
+   with Project model and contains category types'''
 class ProCategory(db.Model):
     __tablename__ = 'procategory'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     category = db.relationship(Project, backref='procategories', lazy=True, cascade='all, delete')
 
-
+'''Contact model contains the queries received on the site'''
 class Contact(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -57,6 +63,7 @@ class Contact(db.Model):
     phone = db.Column(db.Integer, nullable=False)
     message = db.Column(db.Text, nullable=False)
 
+'''Quote model contains the queries received on the site'''
 class Quote(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -65,7 +72,7 @@ class Quote(db.Model):
     email = db.Column(db.String(50), nullable=False)
     subject = db.Column(db.String(50), nullable=False)
     message = db.Column(db.Text, nullable=False)
-
+'''Worker model contains the information about workers of the company'''
 class Worker(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -75,7 +82,8 @@ class Worker(db.Model):
     fb_link = db.Column(db.String(250), nullable=True)
     tw_link = db.Column(db.String(250), nullable=True)
     ln_link = db.Column(db.String(250), nullable=True)
-    
+
+'''Address model contains the address of the company'''
 class Address(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -83,6 +91,7 @@ class Address(db.Model):
     desc = db.Column(db.String(50), nullable=False)
     big_desc = db.Column(db.String(75), nullable=False)
 
+'''Card model stores information in the form of a card on the site'''
 class Card(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -90,13 +99,8 @@ class Card(db.Model):
     title = db.Column(db.String(50), nullable=False)
     desc = db.Column(db.String(75), nullable=False)
 
-class Icon(db.Model):
 
-    id = db.Column(db.Integer, primary_key=True)
-    icon = db.Column(db.String(20), nullable=True)
-    title = db.Column(db.String(50), nullable=False)
-    desc = db.Column(db.String(150), nullable=False)
-
+'''Comment model contains the comments received on the site'''
 class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
@@ -106,23 +110,11 @@ class Comment(db.Model):
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
     blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
 
-# class Tag(db.Model):
-
-#     id = db.Column(db.Integer, primary_key=True)
-#     title = db.Column(db.String(20), nullable=False)
-#     db.column = db.relationship(Blog, backref='tags', lazy=True)
-
-# posts_tags = db.Table('posts_tags',
-#         db.Column('post_id', db.Integer, db.ForeignKey('post.id')),
-#         db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')))
-
 class Tag(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(20), nullable=False)
     db.column = db.relationship(Blog, backref='tags', lazy=True)
 
-    def __repr__(self):
-        return f'{self.title}'
 
 blogs_tags = db.Table('blogs_tags',
     db.Column('blog_id', db.Integer, db.ForeignKey('blog.id')),
