@@ -71,34 +71,6 @@ def contact():
         return redirect(url_for('contact'))
     return render_template('app/contact.html', form=form, address=address)
 
-# @app.route('/single/<id>')
-# def single(id):
-#     address = Address.query.all()
-#     comment = Comment.query.filter_by(blog_id=id)
-#     blog = Blog.query.get_or_404(id)
-#     form = CommentForm()
-#     return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form)
-
-# @app.route('/addcomment/<id>', methods=['GET', 'POST'])
-# def addcomment(id):
-#     blog = Blog.query.get_or_404(id)
-#     comment = Comment.query.filter_by(blog_id=id)
-#     address = Address.query.all()
-#     form = CommentForm()
-#     if form.validate_on_submit():
-#         comment = Comment(
-#             author = form.name.data,
-#             mail = form.email.data,
-#             text = form.text.data,
-#             timestamp = form.date.data,
-#             blog_id = id
-#         )
-#         db.session.add(comment)
-#         db.session.commit()
-#         return redirect(url_for('blog'))
-#     return render_template('app/single-blog.html', blog=blog,  address=address, form=form, comment=comment)
-
-
 @app.route('/single/<id>', methods=['GET', 'POST'])
 def single(id):
     address = Address.query.all()
@@ -121,24 +93,6 @@ def single(id):
         return redirect(url_for('single', id=id))
     return render_template('app/single-blog.html', blog=blog, address=address, comment=comment, form=form, category=category, comment_count=comment_count, category_count=category_count)
 
-
-    # blog = Blog.query.get_or_404(id)
-    # address = Address.query.all()
-    # form = CommentForm()
-    # if form.validate_on_submit():
-    #     comment = Comment(
-    #         author = form.name.data,
-    #         mail = form.email.data,
-    #         text = form.text.data,
-    #         timestamp = form.date.data,
-    #         blog_id = id
-    #     )
-    #     db.session.add(comment)
-    #     db.session.commit()
-    #     return redirect(url_for('blog'))
-    # return render_template('app/single-blog.html', blog=blog,  address=address, form=form, comment=comment)
-    
-
 # ADMIN ===============================
 
 @app.route('/admin')
@@ -153,10 +107,6 @@ def admin():
 def navbar():
     address = Address.query.all()
     return render_template('includes/header.html', address=address)
-
-
-
-
 
 # =======================================
 
@@ -336,9 +286,6 @@ def blog_add():
             category = request.form['category']
         )
         db.session.add(blog)
-        db.session.commit()
-        tag = Tag.query.filter(Tag.id == Blog.id).all()[-1]
-        tag.posts.append(blog)
         db.session.commit()
         return redirect(url_for('blog_list'))
     return render_template('admin/blog-add.html', blog_category=blog_category)
