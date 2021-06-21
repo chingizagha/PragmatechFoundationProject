@@ -1,0 +1,41 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row ">
+      <div class="col">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Author</th>
+                <th scope="col">Email</th>
+                <th scope="col">Text</th>
+                <th scope="col">Date</th>
+                <th scope="col">Blog id</th>
+              </tr>
+            </thead>
+            <tbody>
+               {% for comment in comment %}
+              <tr>
+                <td>{{comment.id}}</td>
+                <td>{{comment.author}}</td>
+                <td>{{comment.mail}}</td>
+                <td>{{comment.text | truncate(25)}}</td>
+                <td>{{comment.timestamp}}</td>
+                <td>{{comment.blog_id}}</td>
+                <td><a href="{{url_for('comment_delete', id=comment.id)}}"  onclick="return confirm('Are You Sure To Delete ?')"><i class="fas fa-trash-alt"></i>Delete</a></td>             </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+      </div>
+    
+      
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

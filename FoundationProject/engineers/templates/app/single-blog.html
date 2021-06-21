@@ -50,15 +50,19 @@
 
 
                     <div class="pt-3rem ff-mulish single-blog-categories">
+                       
                         <p>
-                            Categories: <a href="#">Design</a>, <a href="#">Events</a>, Tags: <a href="#">#html</a>, <a
+                            Category: <a href="#">{{blog.category}}</a>, Tags: <a href="#">#html</a>, <a
                                 href="#">#trends</a>
                         </p>
+                
                     </div>
                     
                     <div class="pt-5rem single-blog-comment">
+                        <a href="{{url_for('single', id=blog.id)}}">
+                            <h3 class="margin-bottom-5rem first-h3">{{ comment_count }} Comments</h3>
+                        </a>
                         
-                        <h3 class="margin-bottom-5rem first-h3">{{ comment_count }} Comments</h3>
                         {% for comment in comment %}
                         <ul class="comment-section">
                             
@@ -124,7 +128,7 @@
                             <ul>
                                 <li class="p-rel">
                                     <a href="#">{{category.title}}
-                                        <span class="p-abs color-ccc ">({{category_count}})</span>
+                                        <span class="p-abs color-ccc" value="{{category.id}}">({{category_count}})</span>
                                     </a>
                                 </li>
                             </ul>

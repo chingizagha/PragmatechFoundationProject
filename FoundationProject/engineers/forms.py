@@ -36,4 +36,8 @@ class CommentForm(FlaskForm):
 #     reply = TextAreaField('Message', validators=[DataRequired(), Length(min=20, max=200)])
 #     submit = SubmitField('POST COMMENT')
 
+class TagForm(FlaskForm):
+    title = StringField('Tag', validators=[DataRequired()])
+    submit = SubmitField('Add')
+
     

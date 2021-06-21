@@ -2,8 +2,8 @@ from flask.helpers import flash
 from engineers import app, os, db
 from flask import render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
-from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment, Card
-from engineers.forms import ContactForm, QuoteForm, CommentForm
+from engineers.models import Blog, BlogCategory, Project, ProCategory, Testi, Contact, Quote, Worker, Address, Comment, Card, Tag
+from engineers.forms import ContactForm, QuoteForm, CommentForm, TagForm
 
 
 
@@ -105,9 +105,9 @@ def single(id):
     comment = Comment.query.filter_by(blog_id=id)   
     blog = Blog.query.get_or_404(id)
     form = CommentForm()
-    comment_count = Blog.query.filter(Comment.blog_id==Blog.comment).count()
-    category_count = BlogCategory.query.filter(Blog.category == BlogCategory.category).count()
     category = BlogCategory.query.all()
+    comment_count = Comment.query.filter(Comment.blog_id == blog.id).count()
+    category_count = Blog.query.filter(Blog.category == BlogCategory.id).count()
     if form.validate_on_submit():
         comment = Comment(
             author = form.name.data,
@@ -337,6 +337,9 @@ def blog_add():
         )
         db.session.add(blog)
         db.session.commit()
+        tag = Tag.query.filter(Tag.id == Blog.id).all()[-1]
+        tag.posts.append(blog)
+        db.session.commit()
         return redirect(url_for('blog_list'))
     return render_template('admin/blog-add.html', blog_category=blog_category)
 
@@ -386,6 +389,24 @@ def blog_cat_delete(id):
     db.session.delete(blog_category)
     db.session.commit()
     return redirect(url_for('blog_cat_list'))
+
+@app.route('/tags/<int:id>')
+def tag_detail(id):
+    tag = Tag.query.filter(Tag.id == id).first()
+    return render_template('tag.html', tag=tag)
+
+
+@app.route('/tag-add', methods=['GET', 'POST'])
+def tag_add():
+    form = TagForm()
+    if form.validate_on_submit():
+        tag = Tag(
+            title=form.title.data
+            )
+        db.session.add(tag)
+        db.session.commit()
+        return redirect(url_for('blog_add'))
+    return render_template('tag-add.html', form=form)
    
 
 
@@ -509,3 +530,17 @@ def contact_delete(id):
     db.session.commit()
     return redirect(url_for('contact_info'))
 # =======================================
+
+# COMMENT SECTION =============================
+
+@app.route('/admin/comment')
+def comment_list():
+    comment = Comment.query.all()
+    return render_template('admin/comment.html', comment=comment)
+
+@app.route('/admin/comment-delete/<int:id>', methods=['GET', 'POST'])
+def comment_delete(id):
+    comment = Comment.query.get_or_404(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return redirect(url_for('comment_list')) 

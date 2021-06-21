@@ -12,6 +12,7 @@ class Blog(db.Model):
     desc = db.Column(db.Text, nullable=False)
     category = db.Column(db.Integer, db.ForeignKey('blogcategory.id'), nullable=False)
     comment = db.relationship('Comment', backref='blog', lazy=True, cascade='all,delete')
+    tag = db.relationship('Tag', secondary='blogs_tags', backref=db.backref('blogs', lazy='dynamic'))
 
 
     def __repr__(self):
@@ -104,3 +105,25 @@ class Comment(db.Model):
     text = db.Column(db.String(140), nullable=False)
     timestamp = db.Column(db.DateTime(), default=datetime.utcnow, index=True)
     blog_id = db.Column(db.Integer, db.ForeignKey('blog.id'), nullable=False)
+
+# class Tag(db.Model):
+
+#     id = db.Column(db.Integer, primary_key=True)
+#     title = db.Column(db.String(20), nullable=False)
+#     db.column = db.relationship(Blog, backref='tags', lazy=True)
+
+# posts_tags = db.Table('posts_tags',
+#         db.Column('post_id', db.Integer, db.ForeignKey('post.id')),
+#         db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')))
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(20), nullable=False)
+    db.column = db.relationship(Blog, backref='tags', lazy=True)
+
+    def __repr__(self):
+        return f'{self.title}'
+
+blogs_tags = db.Table('blogs_tags',
+    db.Column('blog_id', db.Integer, db.ForeignKey('blog.id')),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')))
